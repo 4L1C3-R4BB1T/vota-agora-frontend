@@ -1,8 +1,11 @@
 import logoImg from '@assets/images/logo.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 const SignInForm = () => {
+    const navigate = useNavigate();
+    const handleClick = () => navigate("/");
+    
     return (
         <>
             <form>
@@ -19,7 +22,7 @@ const SignInForm = () => {
                     <label htmlFor="iPassword">Senha</label>
                     <input type="password" name="password" id="iPassword" placeholder='Digite sua senha atual' />
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" onClick={handleClick}>Login</button>
             </form>
             <span>
                 Não possui conta? <NavLink className={styles['signin']} to="/auth/signup">Cadastre-se</NavLink>
