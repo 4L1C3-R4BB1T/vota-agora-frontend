@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom';
 import vote from '../../assets/vote.png';
 
 function Login() {
- 
     return (
         <div className="flex w-screen h-screen [&>section]:flex-1">
             <section className="hidden lg:flex flex-col items-center justify-center gap-5 bg-brand-primary p-10">

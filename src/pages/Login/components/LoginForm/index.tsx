@@ -5,7 +5,7 @@ import logo from '../../../../assets/logo.png';
 
 function LoginForm() {
     return (
-        <div className="flex flex-col h-full justify-center items-center">
+        <div className="flex flex-col h-full justify-center items-center slide-in-left">
             <img src={logo} className="w-[200px] mx-auto"/>
             <div className="max-w-[50%] w-full mt-2">
                 <div className="flex flex-col mt-5">

@@ -1,0 +1,11 @@
+.slide-in-left {
+    transform: translateX(-5rem); 
+    animation: slideIn 0.5s forwards; 
+}
+
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0); 
+    }
+}

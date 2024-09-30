@@ -5,6 +5,7 @@ import './global.scss';
 import Login from './pages/Login';
 import LoginForm from './pages/Login/components/LoginForm';
 import RegisterForm from './pages/Login/components/RegisterForm';
+import Home from './pages/Home';
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path: '',
+    element: <Home/>
+  }
 ]);
 
 createRoot(document.getElementById('root')!).render(
