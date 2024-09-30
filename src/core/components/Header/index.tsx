@@ -1,18 +1,34 @@
 
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
-import logo from '../../../assets/logo_white.png';
+import logo from '../../../assets/logo.png';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 function Header() {
     return (
-        <header className="flex bg-brand-primary text-white items-center justify-between py-3  px-20 shadow-lg">
-            <div className="flex gap-2 items-center">
-                <img src={logo} className="w-[200px]" />
+        <header>
+            <div className="flex items-center justify-between py-3  ps-20 pe-10">
+                <div className="flex gap-2 items-center">
+                    <img src={logo} className="w-[200px]" />
+                </div>
+                <div className="flex items-center gap-3">
+                    <div className="flex gap-2">
+                        <Input className="text-base" type="search" placeholder="Pesquisar"/>
+                        <Button className="bg-brand-primary hover:bg-brand-primary">
+                            <i className="fa-solid fa-magnifying-glass"></i>
+                        </Button>
+                    </div>
+                    <Avatar>
+                        <AvatarImage src="https://github.com/shadcn.png" />
+                    </Avatar>
+                    <div>
+                        <Button className="bg-brand-primary hover:bg-brand-primary">
+                            <i className="fa-solid fa-bars"></i>
+                        </Button>
+                    </div>
+                </div>
             </div>
-            <div>
-            <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-            </Avatar>
-            </div>
+            <div className="p-0.5 bg-brand-primary"></div>
         </header>
     );
 }
