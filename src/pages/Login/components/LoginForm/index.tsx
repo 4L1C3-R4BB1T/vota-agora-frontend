@@ -18,7 +18,7 @@ function LoginForm() {
                         <FormField label="Senha" type="password" placeholder="Digite sua Senha" className='p-6 text-lg'/>
                    </div>
                     <Button className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Login</Button>
-                    <p className="text-lg text-center">Não possui uma conta? <Link to="register" className="text-brand-primary">Cadastra-se</Link></p>
+                    <p className="text-lg text-center">Não possui uma conta? <Link to="register" className="text-brand-primary">Cadastre-se</Link></p>
                 </form>
             </div>
         </div>
