@@ -2,7 +2,7 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input"; // Importando o componente Input do shadcn
 import { Button } from "@/components/ui/button"; // Importando o componente Button do shadcn
 
-function Wallet() {
+function WalletPage() {
   return (
     <div className="container mx-auto p-6">
     <Card className="shadow-lg">
@@ -77,4 +77,4 @@ function Wallet() {
   );
 }
 
-export default Wallet;
+export default WalletPage;

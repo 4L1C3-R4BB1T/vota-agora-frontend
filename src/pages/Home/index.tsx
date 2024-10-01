@@ -2,7 +2,7 @@ import Footer from "@/core/components/Footer";
 import Header from "@/core/components/Header";
 import { Outlet } from "react-router-dom";
 
-function Home() {
+function HomePage() {
     return (
         <div>
             <Header/>
@@ -17,4 +17,4 @@ function Home() {
 }
 
 
-export default Home;
+export default HomePage;

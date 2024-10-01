@@ -2,21 +2,22 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import './global.scss';
-import Login from './pages/Login';
+import LoginPage from './pages/Login';
 import LoginForm from './pages/Login/components/LoginForm';
 import RegisterForm from './pages/Login/components/RegisterForm';
-import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
-import Profile from './pages/Profile';
-import Wallet from './pages/Wallet';
-import PublicConsultationView from './pages/PublicConsultationView';
-import PublicConsultation from './pages/PublicConsultation';
+import HomePage from './pages/Home';
+import DashboardPage from './pages/Dashboard';
+import ProfilePage from './pages/Profile';
+import WalletPage from './pages/Wallet';
+import PublicConsultationViewPage from './pages/PublicConsultationView';
+import PublicConsultationPage from './pages/PublicConsultation';
+import CreatePublicConsultation from './pages/CreatePublicConsultation';
 
 
 const router = createBrowserRouter([
   {
     path: '/auth',
-    element: <Login/>,
+    element: <LoginPage/>,
     children: [
       {
         element: <LoginForm/>,
@@ -30,27 +31,31 @@ const router = createBrowserRouter([
   },
   {
     path: 'home',
-    element: <Home/>,
+    element: <HomePage/>,
     children: [
       {
         path: 'dashboard',
-        element: <Dashboard/>,
+        element: <DashboardPage/>,
       },
       {
         path: 'profile',
-        element: <Profile/>
+        element: <ProfilePage/>
       },
       {
         path: 'wallet',
-        element: <Wallet/>
+        element: <WalletPage/>
       },
       {
         path: 'public-consultation-view',
-        element: <PublicConsultationView/>
+        element: <PublicConsultationViewPage/>
       },
       {
         path: 'public-consultation',
-        element: <PublicConsultation/>
+        element: <PublicConsultationPage/>
+      },
+      {
+        path: 'create-public-consultation',
+        element: <CreatePublicConsultation/>
       }
     ],
   },

@@ -1,7 +1,7 @@
 import DashboardChart from "@/core/components/DashboardChart";
 import HighlightPublicConsultation from "@/core/components/HighlightPublicConsultation";
 
-function Dashboard() {
+function DashboardPage() {
     return (
         <div>
            <div>
@@ -16,4 +16,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default DashboardPage;

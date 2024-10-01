@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from '@/components/ui/input';
 
-function Profile() {
+function ProfilePage() {
   return (
 <div className="container mx-auto p-6">
   <Card className="shadow-lg">
@@ -68,4 +68,4 @@ function Profile() {
   );
 };
 
-export default Profile;
+export default ProfilePage;

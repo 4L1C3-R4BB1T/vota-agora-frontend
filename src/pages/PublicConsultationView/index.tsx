@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-function PublicConsultationView() {
+function PublicConsultationViewPage() {
     return (
         <div className="container mx-auto p-6">
         <Card className="shadow-lg">
@@ -72,4 +72,4 @@ function PublicConsultationView() {
     );
 }
 
-export default PublicConsultationView;
+export default PublicConsultationViewPage;
