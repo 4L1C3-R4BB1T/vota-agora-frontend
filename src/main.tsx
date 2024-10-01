@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import './global.scss';
 import Login from './pages/Login';
 import LoginForm from './pages/Login/components/LoginForm';
@@ -26,14 +26,18 @@ const router = createBrowserRouter([
   },
   {
     path: '',
+    element: <Navigate to="/dashboard"/>
+  },
+  {
+    path: '',
     element: <Home/>,
     children: [
       {
+        path: '/dashboard',
         element: <Dashboard/>,
-        index: true
       },
     ],
-  }
+  },
 ]);
 
 createRoot(document.getElementById('root')!).render(

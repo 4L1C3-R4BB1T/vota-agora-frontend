@@ -1,7 +1,12 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import logo from '../../../assets/logo.png';
-import { Input } from '@/components/ui/input';
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbSeparator
+} from "@/components/ui/breadcrumb";
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -10,20 +15,21 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+import { Input } from '@/components/ui/input';
 import useTimer from '@/core/hooks/useTimer';
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-  } from "@/components/ui/breadcrumb"
+import logo from '../../../assets/logo.png';
+import { useLocation } from 'react-router-dom';
+import React from 'react';
   
   
 function Header() {
     const { timerFormatted } = useTimer();
+    // const location = useLocation();
+
+    // React.useEffect(() => {
+    //     console.log(location)
+    // }, [location]);
 
     return (
         <header>
