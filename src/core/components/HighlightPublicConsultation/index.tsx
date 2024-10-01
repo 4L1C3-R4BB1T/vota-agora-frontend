@@ -31,8 +31,6 @@ function HighlightPublicConsultation() {
                         <HighlightPublicConsultationItem/>
                     </CarouselItem>
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
             </Carousel>
         </div>
     );
