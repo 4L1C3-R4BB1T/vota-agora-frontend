@@ -18,18 +18,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from '@/components/ui/input';
 import useTimer from '@/core/hooks/useTimer';
-import logo from '../../../assets/logo.png';
-import { useLocation } from 'react-router-dom';
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+import logo from '../../../assets/logo.png';
   
   
 function Header() {
     const { timerFormatted } = useTimer();
-    // const location = useLocation();
+    const [paths, setPaths] = React.useState([] as string[]);
+    const location = useLocation();
 
-    // React.useEffect(() => {
-    //     console.log(location)
-    // }, [location]);
+    React.useEffect(() => {
+        const { pathname } = location;
+        setPaths(pathname.split('/').filter(path => path?.trim() !== ''));
+    }, [location]);
 
     return (
         <header>
@@ -50,10 +52,8 @@ function Header() {
                     </Avatar>
                     <div>
                         <DropdownMenu>
-                            <DropdownMenuTrigger className="outline-none">
-                                <Button className="bg-brand-primary hover:opacity-80 hover:bg-brand-primary">
-                                    <i className="fa-solid fa-bars"></i>
-                                </Button>
+                            <DropdownMenuTrigger className="outline-none bg-brand-primary hover:opacity-80 text-primary-foreground shadow px-4 py-1.5 rounded-md hover:bg-brand-primary">
+                                <i className="fa-solid fa-bars"></i>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="mt-3">
                                 <DropdownMenuLabel className="text-brand-primary">Olá, Gabriel Cardoso</DropdownMenuLabel>
@@ -73,7 +73,27 @@ function Header() {
             <div className="px-6 pt-4">
                 <Breadcrumb>
                     <BreadcrumbList>
-                        <BreadcrumbItem>
+                        { 
+                            paths.map((path, index) => {
+                                if (index % 2 != 0) {
+                                    return (
+                                        <React.Fragment key={index}>
+                                             <BreadcrumbSeparator />
+                                            <BreadcrumbItem>
+                                                <BreadcrumbLink href={location.pathname}>{ path }</BreadcrumbLink>
+                                            </BreadcrumbItem>
+                                        </React.Fragment>
+                                    )
+                                }
+                        
+                                return (
+                                    <BreadcrumbItem key={index}>
+                                        <BreadcrumbLink href={location.pathname}>{ path }</BreadcrumbLink>
+                                    </BreadcrumbItem>
+                                )
+                            })
+                        }
+                        {/* <BreadcrumbItem>
                             <BreadcrumbLink href="/">Home</BreadcrumbLink>
                         </BreadcrumbItem>
 
@@ -81,7 +101,7 @@ function Header() {
 
                         <BreadcrumbItem>
                             <BreadcrumbLink href="/">Dashboard</BreadcrumbLink>
-                        </BreadcrumbItem>
+                        </BreadcrumbItem> */}
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
