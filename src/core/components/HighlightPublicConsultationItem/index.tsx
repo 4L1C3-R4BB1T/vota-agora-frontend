@@ -7,8 +7,11 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
+import { useNavigate } from "react-router-dom";
 
 function HighlightPublicConsultationItem() {
+    const navigate = useNavigate();
+
    return (
     <Card className="flex-1 border rounded-lg shadow-lg p-6 bg-white hover:shadow-xl transition-shadow duration-300">
   
@@ -49,10 +52,10 @@ function HighlightPublicConsultationItem() {
     </CardContent>
     
         <CardFooter className="flex justify-between mt-4">
-        <Button variant="outline" className="text-brand-primary hover:bg-blue-100">
+        <Button onClick={() => navigate('/home/public-consultation-view')} variant="outline" className="text-brand-primary hover:bg-blue-100">
             Ver Detalhes
         </Button>
-        <Button className="bg-brand-primary text-white hover:bg-brand-primary hover:opacity-80">
+        <Button onClick={() => navigate('/home/public-consultation')} className="bg-brand-primary text-white hover:bg-brand-primary hover:opacity-80">
             Participar
         </Button>
         </CardFooter>

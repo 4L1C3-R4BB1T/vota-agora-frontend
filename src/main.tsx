@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Wallet from './pages/Wallet';
+import PublicConsultationView from './pages/PublicConsultationView';
+import PublicConsultation from './pages/PublicConsultation';
 
 
 const router = createBrowserRouter([
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: 'wallet',
         element: <Wallet/>
+      },
+      {
+        path: 'public-consultation-view',
+        element: <PublicConsultationView/>
+      },
+      {
+        path: 'public-consultation',
+        element: <PublicConsultation/>
       }
     ],
   },
