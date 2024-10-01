@@ -1,11 +1,9 @@
-import HighlightPublicConsultationItem from "../HighlightPublicConsultationItem";
 import {
     Carousel,
     CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-  } from "@/components/ui/carousel"
+    CarouselItem
+} from "@/components/ui/carousel";
+import HighlightPublicConsultationItem from "../HighlightPublicConsultationItem";
   
 function HighlightPublicConsultation() {
     return (
