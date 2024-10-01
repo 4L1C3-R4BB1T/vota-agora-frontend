@@ -90,8 +90,8 @@ function Header() {
                   {paths.map((path, index) => (
                     <React.Fragment key={index}>
                       {index % 2 !== 0 && <BreadcrumbSeparator className='text-white' />}
-                      <BreadcrumbItem>
-                        <BreadcrumbLink className="text-white" href={location.pathname}>{path}</BreadcrumbLink>
+                      <BreadcrumbItem> 
+                        <BreadcrumbLink className="text-white" href={location.pathname}>{path[0].toUpperCase() + path.substring(1)}</BreadcrumbLink>
                       </BreadcrumbItem>
                     </React.Fragment>
                   ))}
