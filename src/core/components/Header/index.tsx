@@ -19,7 +19,7 @@ import {
 import { Input } from '@/components/ui/input';
 import useTimer from '@/core/hooks/useTimer';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/logo.png';
   
   
@@ -27,6 +27,7 @@ function Header() {
     const { timerFormatted } = useTimer();
     const [paths, setPaths] = React.useState([] as string[]);
     const location = useLocation();
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         const { pathname } = location;
@@ -37,7 +38,7 @@ function Header() {
         <header className="bg-white shadow-md">
           <div className="container mx-auto flex items-center justify-between p-4">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center cursor-pointer" onClick={() => navigate('/home/dashboard')}>
               <img src={logo} alt="Logo" className="w-[200px] h-auto" />
             </div>
     
@@ -68,8 +69,8 @@ function Header() {
                   <DropdownMenuContent className="mt-3 rounded-lg shadow-lg">
                     <DropdownMenuLabel className="text-brand-primary">Olá, Gabriel Cardoso</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>Perfil</DropdownMenuItem>
-                    <DropdownMenuItem>Carteira</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate('/home/profile')}>Perfil</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate('/home/wallet')}>Carteira</DropdownMenuItem>
                     <DropdownMenuItem>Sair</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>

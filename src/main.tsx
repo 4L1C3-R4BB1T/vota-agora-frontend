@@ -7,6 +7,8 @@ import LoginForm from './pages/Login/components/LoginForm';
 import RegisterForm from './pages/Login/components/RegisterForm';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+import Wallet from './pages/Wallet';
 
 
 const router = createBrowserRouter([
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
         path: 'dashboard',
         element: <Dashboard/>,
       },
+      {
+        path: 'profile',
+        element: <Profile/>
+      },
+      {
+        path: 'wallet',
+        element: <Wallet/>
+      }
     ],
   },
   {
