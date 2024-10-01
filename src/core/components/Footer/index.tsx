@@ -98,7 +98,7 @@ function Footer() {
             {/* Rodapé com Direitos Autorais */}
             <div className="text-center mt-10 border-t border-white pt-4">
               <p className="text-sm">
-                © {new Date().getFullYear()} Sua Empresa. Todos os direitos reservados.
+                © {new Date().getFullYear()} GLT. Todos os direitos reservados.
               </p>
             </div>
           </div>

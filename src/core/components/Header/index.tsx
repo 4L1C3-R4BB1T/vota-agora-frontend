@@ -69,6 +69,7 @@ function Header() {
                     <DropdownMenuLabel className="text-brand-primary">Olá, Gabriel Cardoso</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>Perfil</DropdownMenuItem>
+                    <DropdownMenuItem>Carteira</DropdownMenuItem>
                     <DropdownMenuItem>Sair</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
