@@ -12,7 +12,15 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
 import useTimer from '@/core/hooks/useTimer';
-
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+  } from "@/components/ui/breadcrumb"
+  
   
 function Header() {
     const { timerFormatted } = useTimer();
@@ -56,6 +64,21 @@ function Header() {
                 </div>
             </div>
             <div className="p-4 bg-brand-primary shadow-lg rounded-bl-2xl rounded-br-2xl"></div>
+            <div className="px-6 pt-4">
+                <Breadcrumb>
+                    <BreadcrumbList>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                        </BreadcrumbItem>
+
+                        <BreadcrumbSeparator />
+
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href="/">Dashboard</BreadcrumbLink>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
+            </div>
         </header>
     );
 }
