@@ -34,79 +34,73 @@ function Header() {
     }, [location]);
 
     return (
-        <header>
-            <div className="flex items-center justify-between py-3  p-20 ">
-                <div className="flex gap-2 items-center">
-                    <img src={logo} className="w-[200px]" />
-                </div>
-                <div className="flex items-center gap-3">
-                    <div className="flex gap-2">
-                        <Input className="text-base hover:border-brand-primary" type="search" placeholder="Pesquisar"/>
-                        <Button className="bg-brand-primary hover:bg-brand-primary hover:opacity-80">
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                        </Button>
-                    </div>
-                    <Avatar>
-                        <AvatarImage src="https://github.com/shadcn.png" />
-                        <AvatarFallback>G</AvatarFallback>
-                    </Avatar>
-                    <div>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger className="outline-none bg-brand-primary hover:opacity-80 text-primary-foreground shadow px-4 py-1.5 rounded-md hover:bg-brand-primary">
-                                <i className="fa-solid fa-bars"></i>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent className="mt-3">
-                                <DropdownMenuLabel className="text-brand-primary">Olá, Gabriel Cardoso</DropdownMenuLabel>
-                                <DropdownMenuSeparator />
-                                <DropdownMenuItem>Perfil</DropdownMenuItem>
-                                <DropdownMenuItem>Sair</DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </div>
-                    <div className="flex items-center gap-2 text-brand-primary">
-                        <span>{ timerFormatted() }</span>
-                        <i className="fa-solid fa-clock"></i>
-                    </div>
-                </div>
+        <header className="bg-white shadow-md">
+          <div className="container mx-auto flex items-center justify-between p-4">
+            {/* Logo */}
+            <div className="flex items-center">
+              <img src={logo} alt="Logo" className="w-[200px] h-auto" />
             </div>
-            <div className="p-4 bg-brand-primary shadow-lg rounded-bl-2xl rounded-br-2xl"></div>
-            <div className="px-6 pt-4">
-                <Breadcrumb>
-                    <BreadcrumbList>
-                        { 
-                            paths.map((path, index) => {
-                                if (index % 2 != 0) {
-                                    return (
-                                        <React.Fragment key={index}>
-                                             <BreadcrumbSeparator />
-                                            <BreadcrumbItem>
-                                                <BreadcrumbLink href={location.pathname}>{ path }</BreadcrumbLink>
-                                            </BreadcrumbItem>
-                                        </React.Fragment>
-                                    )
-                                }
-                        
-                                return (
-                                    <BreadcrumbItem key={index}>
-                                        <BreadcrumbLink href={location.pathname}>{ path }</BreadcrumbLink>
-                                    </BreadcrumbItem>
-                                )
-                            })
-                        }
-                        {/* <BreadcrumbItem>
-                            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-                        </BreadcrumbItem>
-
-                        <BreadcrumbSeparator />
-
-                        <BreadcrumbItem>
-                            <BreadcrumbLink href="/">Dashboard</BreadcrumbLink>
-                        </BreadcrumbItem> */}
-                    </BreadcrumbList>
-                </Breadcrumb>
+    
+            {/* Barra de Pesquisa e Avatar */}
+            <div className="flex items-center gap-4">
+              {/* Barra de Pesquisa */}
+              <div className="flex items-center gap-2">
+                <Input
+                  className="text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
+                  type="search"
+                  placeholder="Pesquisar"
+                />
+                <Button className="bg-brand-primary hover:bg-brand-primary hover:opacity-80 rounded-lg">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </Button>
+              </div>
+    
+              {/* Avatar e Menu Dropdown */}
+              <div className="relative flex items-center">
+                <Avatar>
+                  <AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />
+                  <AvatarFallback>G</AvatarFallback>
+                </Avatar>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="ml-2 outline-none bg-brand-primary hover:opacity-80 text-primary-foreground shadow px-4 py-1.5 rounded-md">
+                    <i className="fa-solid fa-bars"></i>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="mt-3 rounded-lg shadow-lg">
+                    <DropdownMenuLabel className="text-brand-primary">Olá, Gabriel Cardoso</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Perfil</DropdownMenuItem>
+                    <DropdownMenuItem>Sair</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+    
+              {/* Timer */}
+              <div className="flex items-center gap-2 text-brand-primary">
+                <span>{timerFormatted()}</span>
+                <i className="fa-solid fa-clock"></i>
+              </div>
             </div>
+          </div>
+    
+          {/* Barra de Navegação */}
+          <div className="p-4 bg-brand-primary rounded-bl-2xl rounded-br-2xl shadow-lg">
+            <div className="container mx-auto">
+              <Breadcrumb>
+                <BreadcrumbList>
+                  {paths.map((path, index) => (
+                    <React.Fragment key={index}>
+                      {index % 2 !== 0 && <BreadcrumbSeparator className='text-white' />}
+                      <BreadcrumbItem>
+                        <BreadcrumbLink className="text-white" href={location.pathname}>{path}</BreadcrumbLink>
+                      </BreadcrumbItem>
+                    </React.Fragment>
+                  ))}
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
+          </div>
         </header>
-    );
+      );
 }
 
 export default Header;
