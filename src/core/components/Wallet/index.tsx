@@ -26,18 +26,18 @@ function Wallet() {
               {/* Informações do Reward Token */}
               <div className="flex flex-col items-center">
                 <i className="fas fa-gift text-4xl text-brand-primary mb-4"></i>
-                <span className="font-semibold text-brand-primary text-xl">Reward Token</span>
-                <span className="text-4xl font-bold text-gray-800 block bg-gray-100 p-4 rounded-lg mt-3 shadow-sm">
-                  100,000,000 GLT
+                <span className="font-bold text-brand-primary text-lg">Reward Token (GLT)</span>
+                <span className="text-xl font-semibold text-brand-primary block bg-gray-100 p-4 rounded-lg mt-3 shadow-sm">
+                  100,000,000 
                 </span>
               </div>
   
               {/* Área de cópia para Endereço do Token */}
               <div className="flex flex-col items-center">
                 <i className="fas fa-address-card text-4xl text-brand-primary mb-4"></i>
-                <span className="font-semibold text-brand-primary text-xl">Endereço do Token</span>
+                <span className="font-bold text-brand-primary text-lg">Endereço do Token</span>
                 <div className="flex items-center space-x-2 group bg-gray-100 mt-2 p-4 rounded-lg shadow-sm w-full justify-center">
-                  <span className="text-lg text-gray-700">0x1234567890abcdef1234567890abcdef12345678</span>
+                  <span className=" text-brand-primary text-lg">0x1234567890abcdef1234567890abcdef12345678</span>
                   <button
                     onClick={() => handleCopy("0x1234567890abcdef1234567890abcdef12345678", setCopySuccessToken)}
                     className="text-brand-primary hover:text-brand-primary/80 transition duration-200 group-hover:scale-105"
@@ -51,9 +51,9 @@ function Wallet() {
               {/* Área de cópia para Endereço da Wallet */}
               <div className="flex flex-col items-center">
                 <i className="fas fa-wallet text-4xl text-brand-primary mb-4"></i>
-                <span className="font-semibold text-brand-primary text-xl">Endereço da Wallet</span>
+                <span className="font-bold text-brand-primary text-lg">Endereço da Wallet</span>
                 <div className="flex items-center space-x-2 group bg-gray-100  mt-2 p-4 rounded-lg shadow-sm w-full justify-center">
-                  <span className="text-lg text-gray-700">0xabcdef1234567890abcdef1234567890abcdef12</span>
+                  <span className="text-lg text-brand-primary">0xabcdef1234567890abcdef1234567890abcdef12</span>
                   <button
                     onClick={() => handleCopy("0xabcdef1234567890abcdef1234567890abcdef12", setCopySuccessWallet)}
                     className="text-brand-primary hover:text-brand-primary/80 transition duration-200 group-hover:scale-105"
@@ -67,8 +67,8 @@ function Wallet() {
               {/* Quantidade de Ether */}
               <div className="flex flex-col items-center">
                 <i className="fab fa-ethereum text-4xl text-brand-primary mb-4"></i>
-                <span className="font-semibold text-brand-primary text-xl">Quantidade de Ether</span>
-                <span className="text-2xl font-bold text-gray-800 bg-gray-100 block mt-2 p-4 rounded-lg shadow-sm">
+                <span className="font-bold text-brand-primary text-lg">Quantidade de Ether</span>
+                <span className="text-lg font-bold text-gray-800 bg-gray-100 block mt-2 p-4 rounded-lg shadow-sm">
                   2.5 ETH
                 </span>
               </div>
