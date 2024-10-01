@@ -1,9 +1,10 @@
 import { Button } from '@/components/ui/button';
 import FormField from '@/core/components/FormField';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../../assets/logo.png';
 
 function LoginForm() {
+    const navigate = useNavigate();
     return (
         <div className="flex flex-col h-full justify-center items-center slide-in-left">
             <img src={logo} className="w-[200px] mx-auto"/>
@@ -17,7 +18,7 @@ function LoginForm() {
                    <div className="mt-5">
                         <FormField label="Senha" type="password" placeholder="Digite sua Senha" className='p-6 text-lg'/>
                    </div>
-                    <Button className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Login</Button>
+                    <Button onClick={() => navigate("/")} className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Login</Button>
                     <p className="text-lg text-center">Não possui uma conta? <Link to="register" className="text-brand-primary">Cadastra-se</Link></p>
                 </form>
             </div>

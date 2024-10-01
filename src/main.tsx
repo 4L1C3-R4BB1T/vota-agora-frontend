@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import LoginForm from './pages/Login/components/LoginForm';
 import RegisterForm from './pages/Login/components/RegisterForm';
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 
 
 const router = createBrowserRouter([
@@ -25,7 +26,13 @@ const router = createBrowserRouter([
   },
   {
     path: '',
-    element: <Home/>
+    element: <Home/>,
+    children: [
+      {
+        element: <Dashboard/>,
+        index: true
+      },
+    ],
   }
 ]);
 
