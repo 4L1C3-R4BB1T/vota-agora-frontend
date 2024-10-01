@@ -5,6 +5,7 @@ import logo from '../../../../assets/logo.png';
 
 function LoginForm() {
     const navigate = useNavigate();
+    
     return (
         <div className="flex flex-col h-full justify-center items-center slide-in-left">
             <img src={logo} className="w-[200px] mx-auto"/>

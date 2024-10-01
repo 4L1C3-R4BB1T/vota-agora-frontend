@@ -11,9 +11,12 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
+import useTimer from '@/core/hooks/useTimer';
 
   
 function Header() {
+    const { timerFormatted } = useTimer();
+
     return (
         <header>
             <div className="flex items-center justify-between py-3  p-20 ">
@@ -47,7 +50,7 @@ function Header() {
                         </DropdownMenu>
                     </div>
                     <div className="flex items-center gap-2 text-brand-primary">
-                        <span>21:00</span>
+                        <span>{ timerFormatted() }</span>
                         <i className="fa-solid fa-clock"></i>
                     </div>
                 </div>
