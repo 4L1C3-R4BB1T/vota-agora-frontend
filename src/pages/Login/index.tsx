@@ -15,8 +15,9 @@ function LoginPage() {
                 <div className="absolute bottom-0 w-full flex flex-col items-center justify-center text-brand-primary font-semibold pb-5 ">
                     <span className="text-lg font-bold">Versão 2.0</span>
                     <span className="text-sm flex items-center">
-                        Feito com amor por GL 
-                        <span role="img" aria-label="coração" className="ml-2 text-red-500 text-lg">❤️</span>
+                        Feito com 
+                        <span role="img" aria-label="coração" className="text-red-500 text-lg">❤️</span>
+                        por GL 
                     </span>
                 </div>
 
