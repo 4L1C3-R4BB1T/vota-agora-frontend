@@ -29,6 +29,7 @@
     "recharts": "^2.12.7",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "vota-agora-frontend": "file:",
     "zod": "^3.23.8"
   },
   "devDependencies": {
