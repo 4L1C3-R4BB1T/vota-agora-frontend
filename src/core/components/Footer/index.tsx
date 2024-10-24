@@ -5,8 +5,10 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
+import { useNavigate } from "react-router-dom";
   
 function Footer() {
+    const navigate = useNavigate();
     return (
         <footer className="bg-brand-primary text-white py-10">
           <div className="container mx-auto px-6">
@@ -20,7 +22,7 @@ function Footer() {
                   <p className="text-sm text-brand-primary mb-4">
                     Sua voz é importante! Participe das nossas consultas públicas e ajude a moldar o futuro.
                   </p>
-                  <Button className="bg-brand-primary text-white hover:bg-brand-primary hover:opacity-80">
+                  <Button onClick={() => navigate("/home/public-consultation")} className="bg-brand-primary text-white hover:bg-brand-primary hover:opacity-80">
                     Ver Consultas Abertas
                   </Button>
                 </CardContent>

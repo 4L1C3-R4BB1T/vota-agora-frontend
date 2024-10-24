@@ -98,7 +98,7 @@ const router = createBrowserRouter([
                 to: '/home/dashboard', 
               },
               {
-                label: 'Visualização de consulta pública',
+                label: 'Visualizar Consulta Pública',
                 to: '/home/public-consultation-view', 
               },
             ] as BreadcrumbOptions[]
@@ -116,7 +116,7 @@ const router = createBrowserRouter([
                 to: '/home/dashboard', 
               },
               {
-                label: 'Listagem Consultas públicas',
+                label: 'Consultas públicas',
                 to: '/home/public-consultation', 
               },
             ] as BreadcrumbOptions[]
@@ -134,7 +134,7 @@ const router = createBrowserRouter([
                 to: '/home/dashboard', 
               },
               {
-                label: 'Criar nova Consulta pública',
+                label: 'Nova Consulta pública',
                 to: '/home/create-public-consultation', 
               },
             ] as BreadcrumbOptions[]
