@@ -1,7 +1,9 @@
 
 # 🗳️ Vota Agora
 
-https://github.com/user-attachments/assets/0284d5e8-c692-488e-86ba-df57c9d9e0be
+
+https://github.com/user-attachments/assets/ad168ff1-f860-4608-b750-490bce806170
+
 
 Link para o [Backend](https://github.com/GNobroga/vota-agora)
 
