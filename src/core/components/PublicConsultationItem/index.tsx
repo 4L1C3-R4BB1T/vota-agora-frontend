@@ -1,16 +1,24 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     status?: 'open' | 'closed';
 }
 
 function PublicConsultationItem({ status = 'open' }: Props) {
+    const navigate = useNavigate();
     return (
          
         <div className="p-4 border rounded-lg hover:shadow-md transition-shadow duration-200">
-        <h2 className="text-xl font-semibold text-brand-primary">
-            Consulta sobre Transporte Público
-        </h2>
+        <span className="flex justify-between">
+            <h2 className="text-xl font-semibold text-brand-primary">
+                Consulta sobre Transporte Público
+            </h2>
+            <span className="flex items-center gap-1 text-sm text-brand-primary font-semibold">
+                Postada por
+                <span className="text-sm font-normal">Gabriel Cardoso Girarde</span>
+            </span>
+        </span>
         <p className="text-gray-700">
             Descrição: Buscamos opiniões sobre a melhoria do transporte público na cidade.
         </p>
@@ -40,7 +48,7 @@ function PublicConsultationItem({ status = 'open' }: Props) {
                          <span className="font-semibold text-sm text-green-600">
                             <i className="fas fa-lock-open mr-1"></i> Aberta
                         </span>
-                        <Button className="bg-brand-primary text-white hover:bg-brand-primary/80">
+                        <Button onClick={() => navigate("/home/public-consultation-view")}  className="bg-brand-primary text-white hover:bg-brand-primary/80">
                          Votar
                         </Button>
                        </>

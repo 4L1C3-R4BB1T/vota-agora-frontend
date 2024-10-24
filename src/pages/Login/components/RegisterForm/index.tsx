@@ -6,8 +6,14 @@ import logo from '../../../../assets/logo.png';
 function RegisterForm() {
     return (
         <div className="flex flex-col h-full justify-center items-center slide-in-left">
-             <img src={logo} className="w-[200px] mx-auto"/>
+             <img src={logo} className="w-[300px] mx-auto"/>
             <div className="max-w-[50%] w-full mt-2">
+                <div className="mt-4">
+                    <h1 className="text-4xl font-semibold text-gray-800 mb-2">Registre-se agora!</h1>
+                    <p className="mt-2 text-lg text-gray-600 opacity-90">
+                        E faça parte dessa comunidade vibrante!
+                    </p>
+                </div>
                 <form className="mt-4">
                     <FormField label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg"/>
           
