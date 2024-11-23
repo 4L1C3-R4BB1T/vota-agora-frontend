@@ -2,9 +2,14 @@ import { Button } from '@/components/ui/button';
 import FormField from '@/core/components/FormField';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '@/assets/logo.png';
+import { useMask } from '@react-input/mask';
 
 function LoginForm() {
     const navigate = useNavigate();
+    const cpfRef = useMask({
+        mask: '___.___.___-__',
+        replacement: { _: /\d/}
+    })
     
     return (
         <div className="relative flex flex-col h-full justify-center items-center slide-in-left">
@@ -17,7 +22,7 @@ function LoginForm() {
                     </p>
                 </div>
                 <form className="mt-4">
-                   <FormField label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg"/>
+                   <FormField ref={cpfRef} label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg"/>
                    <div className="mt-5">
                         <FormField label="Senha" type="password" placeholder="Digite sua Senha" className='p-6 text-lg'/>
                    </div>
