@@ -2,8 +2,14 @@ import { Button } from "@/components/ui/button";
 import FormField from "@/core/components/FormField";
 import { Link } from "react-router-dom";
 import logo from '../../../../assets/logo.png';
+import { useMask } from "@react-input/mask";
 
 function RegisterForm() {
+    const cpfRef = useMask({
+        mask: '___.___.___-__',
+        replacement: { _: /\d/}
+    })
+    
     return (
         <div className="flex flex-col h-full justify-center items-center slide-in-left">
              <img src={logo} className="w-[300px] mx-auto"/>
@@ -15,14 +21,14 @@ function RegisterForm() {
                     </p>
                 </div>
                 <form className="mt-4">
-                    <FormField label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg"/>
+                    <FormField ref={cpfRef} label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg bg-white"/>
           
                     <div className="mt-5">
-                        <FormField label="Senha" type="password" placeholder="Digite a senha" className="p-6 text-lg"/>
+                        <FormField label="Senha" type="password" placeholder="Digite a senha" className="p-6 text-lg bg-white"/>
                     </div>
 
                     <div className="mt-5">
-                        <FormField label="Confirmar Senha" type="password" placeholder="Digite a senha novamente" className="p-6 text-lg"/>
+                        <FormField label="Confirmar Senha" type="password" placeholder="Digite a senha novamente" className="p-6 text-lg bg-white"/>
                     </div>
                     <Button  className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Cadastrar</Button>
                     <p className="text-lg text-center">Já possui uma conta? <Link to="/auth" className="text-brand-primary">Faça Login</Link></p>

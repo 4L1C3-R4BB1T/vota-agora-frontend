@@ -10,7 +10,7 @@ function LoginPage() {
                     O futuro não se constrói sozinho. Sua voz é a chave para a mudança. <br/> Vote e faça parte da transformação!
                 </p>
             </section>
-            <section className="relative">
+            <section className="relative bg-gray-100">
                 <Outlet/>
                 <div className="absolute bottom-0 w-full flex flex-col items-center justify-center text-brand-primary font-semibold pb-5 ">
                     <span className="text-lg font-bold">Versão 2.0</span>
