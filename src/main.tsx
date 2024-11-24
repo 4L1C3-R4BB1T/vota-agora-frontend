@@ -12,6 +12,7 @@ import WalletPage from '@/pages/Wallet';
 import PublicConsultationViewPage from '@/pages/PublicConsultationView';
 import PublicConsultationPage from '@/pages/PublicConsultation';
 import CreatePublicConsultation from '@/pages/CreatePublicConsultation';
+import 'react-toastify/dist/ReactToastify.css';
 
 export interface BreadcrumbOptions {
   label: string;

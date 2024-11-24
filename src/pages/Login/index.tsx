@@ -1,7 +1,23 @@
 import vote from '@/assets/vote.png';
+import React from 'react';
+import { Mosaic } from 'react-loading-indicators';
 import { Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 function LoginPage() {
+    const [loading, setLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setLoading(() => false);
+        }, 2000);
+    }, []);
+
+    if (loading) {
+        return <div className="flex items-center justify-center w-screen h-screen">
+            <Mosaic color={["#33CCCC", "#33CC36", "#B8CC33", "#FCCA00"]} />
+        </div>
+    }
     return (
         <div className="flex w-screen h-screen [&>section]:flex-1">
             <section className="hidden lg:flex flex-col items-center justify-center gap-5 bg-brand-primary p-10">
@@ -11,17 +27,11 @@ function LoginPage() {
                 </p>
             </section>
             <section className="relative bg-gray-100">
-                <Outlet/>
-                <div className="absolute bottom-0 w-full flex flex-col items-center justify-center text-brand-primary font-semibold pb-5 ">
-                    <span className="text-lg font-bold">Versão 2.0</span>
-                    <span className="text-sm flex items-center">
-                        Feito com 
-                        <span role="img" aria-label="coração" className="text-red-500 text-lg">❤️</span>
-                        por GL 
-                    </span>
+                <div className="slide-in-left h-full">
+                    <Outlet/>
                 </div>
-
             </section>
+            <ToastContainer/>
         </div>
     );
 }

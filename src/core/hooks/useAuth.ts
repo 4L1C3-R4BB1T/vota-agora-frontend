@@ -22,10 +22,21 @@ const useAuth = () => {
     const [payload, setPayload] = React.useState<TokenPayload | null>(null);
     const navigate = useNavigate();
 
-    const signOut = React.useCallback(() => {
+    const signOut = () => {
         window.localStorage.removeItem(LOCAL_STORAGE_TOKEN_KEY);
         navigate('/auth');
-    }, [navigate]);
+    };
+
+    const persistToken = (token: string) => {
+        try {
+            window.localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
+            setToken(token);
+            const decoded = jwtDecode<TokenPayload>(token);
+            setPayload(decoded);
+        } catch (error) {
+            console.error(`Failed to persist token: ${token}`, error);
+        }
+    };
 
     React.useEffect(() => {
         const token = window.localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
@@ -38,14 +49,14 @@ const useAuth = () => {
             setToken(token);
             setPayload(decoded);
         } catch (error) {
-            console.log('Invalid Token', error);
+            console.error('Token error', error);
             window.localStorage.removeItem(LOCAL_STORAGE_TOKEN_KEY);
             setToken(null);
             setPayload(null);
         }
     }, []);
 
-    return { token, payload, signOut };
+    return { token, payload, signOut, persistToken };
 }
 
 export default useAuth;

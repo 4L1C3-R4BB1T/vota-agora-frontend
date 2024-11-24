@@ -11,11 +11,15 @@ export interface APIRequest {
 
 const useApi = () => {
     const [loading, setLoading] = React.useState(false);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [error, setError] = React.useState<{ [key: string]: any } | null>(null);
     const { token } = useAuth();
     
     const request = React.useCallback(async <T> ({  method = 'GET', endpoint, headers = {}, body }: APIRequest): Promise<T | null>  => {
         try {
             setLoading(true);
+            setError(null);
+
             const req = await fetch(`${apiConfig.baseUrl}${endpoint}`, {
                 method: method || 'GET',
                 headers: {
@@ -25,16 +29,23 @@ const useApi = () => {
                 },
                 body: body ? JSON.stringify(body) : undefined,
             });
-            return await req.json();
-        } catch (err) {
-            console.log(err);
+            const json = await req.json();
+
+            if (req.status >= 300) {
+                throw json;
+            }
+            
+            return json;
+        } catch (error) {
+            console.error('An error occurred while making the request: ', error);
+            setError(error as object);
             return null;
         } finally {
-            setLoading(false);
+            setTimeout(() => setLoading(false), 1000);
         }
     }, [token]);
 
-    return { request, loading };
+    return { request, loading, error };
 };
 
 export default useApi;
