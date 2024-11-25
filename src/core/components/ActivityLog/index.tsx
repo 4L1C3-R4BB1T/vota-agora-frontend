@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const ActivityLog = () => {
   return (
-    <Card className="shadow-lg basis-[40%] rounded-lg bg-white">
+    <Card className="shadow-lg border-brand-primary basis-[40%] rounded-lg bg-white">
       <CardHeader>
         <CardTitle className="text-2xl font-bold text-white bg-brand-primary p-6 rounded-md flex items-center justify-center shadow-md">
           <i className="fas fa-history mr-2"></i> Atividades Recentes
@@ -10,7 +10,7 @@ const ActivityLog = () => {
       </CardHeader>
       <CardContent className="space-y-6 p-6">
         {/* Atividade 1 */}
-        <div className="flex justify-between items-center bg-gray-100 p-4 rounded-md shadow-sm">
+        <div className="flex justify-between border border-brand-primary items-center bg-gray-100 p-4 rounded-md shadow-sm">
           <div className="flex items-center gap-4">
             <i className="fas fa-arrow-down text-brand-primary text-2xl"></i>
             <div>
@@ -25,7 +25,7 @@ const ActivityLog = () => {
         </div>
 
         {/* Atividade 2 */}
-        <div className="flex justify-between items-center bg-gray-100 p-4 rounded-md shadow-sm">
+        <div className="flex justify-between border border-brand-primary items-center bg-gray-100 p-4 rounded-md shadow-sm">
           <div className="flex items-center gap-4">
             <i className="fas fa-arrow-down text-brand-primary text-2xl"></i>
             <div>
@@ -40,7 +40,7 @@ const ActivityLog = () => {
         </div>
 
         {/* Atividade 3 */}
-        <div className="flex justify-between items-center bg-gray-100 p-4 rounded-md shadow-sm">
+        <div className="flex justify-between border border-brand-primary items-center bg-gray-100 p-4 rounded-md shadow-sm">
           <div className="flex items-center gap-4">
             <i className="fas fa-arrow-down text-brand-primary text-2xl"></i>
             <div>

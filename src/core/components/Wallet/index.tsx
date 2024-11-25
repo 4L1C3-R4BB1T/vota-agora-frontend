@@ -14,7 +14,7 @@ function Wallet() {
   
     return (
       <div className="flex-1">
-        <Card className="fshadow-lg rounded-lg  bg-white">
+        <Card className="shadow-lg border-brand-primary rounded-lg  bg-white">
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-white bg-brand-primary p-6 rounded-md flex items-center justify-center shadow-md">
               <i className="fas fa-wallet mr-2"></i> Minha Wallet
@@ -27,7 +27,7 @@ function Wallet() {
               <div className="flex flex-col items-center">
                 <i className="fas fa-gift text-4xl text-brand-primary mb-4"></i>
                 <span className="font-bold text-brand-primary text-lg">Reward Token (GLT)</span>
-                <span className="text-xl font-semibold text-brand-primary block bg-gray-100 p-4 rounded-lg mt-3 shadow-sm">
+                <span className="text-xl border border-brand-primary font-semibold text-brand-primary block bg-gray-50 p-4 rounded-lg mt-3 shadow-sm">
                   100,000,000 
                 </span>
               </div>
@@ -36,7 +36,7 @@ function Wallet() {
               <div className="flex flex-col items-center">
                 <i className="fas fa-address-card text-4xl text-brand-primary mb-4"></i>
                 <span className="font-bold text-brand-primary text-lg">Endereço do Token</span>
-                <div className="flex items-center space-x-2 group bg-gray-100 mt-2 p-4 rounded-lg shadow-sm w-full justify-center">
+                <div className="flex border border-brand-primary items-center space-x-2 group bg-gray-50 mt-2 p-4 rounded-lg shadow-sm w-full justify-center">
                   <span className=" text-brand-primary text-lg">0x1234567890abcdef1234567890abcdef12345678</span>
                   <button
                     onClick={() => handleCopy("0x1234567890abcdef1234567890abcdef12345678", setCopySuccessToken)}
@@ -52,7 +52,7 @@ function Wallet() {
               <div className="flex flex-col items-center">
                 <i className="fas fa-wallet text-4xl text-brand-primary mb-4"></i>
                 <span className="font-bold text-brand-primary text-lg">Endereço da Wallet</span>
-                <div className="flex items-center space-x-2 group bg-gray-100  mt-2 p-4 rounded-lg shadow-sm w-full justify-center">
+                <div className="flex border border-brand-primary items-center space-x-2 group bg-gray-50  mt-2 p-4 rounded-lg shadow-sm w-full justify-center">
                   <span className="text-lg text-brand-primary">0xabcdef1234567890abcdef1234567890abcdef12</span>
                   <button
                     onClick={() => handleCopy("0xabcdef1234567890abcdef1234567890abcdef12", setCopySuccessWallet)}
@@ -68,7 +68,7 @@ function Wallet() {
               <div className="flex flex-col items-center">
                 <i className="fab fa-ethereum text-4xl text-brand-primary mb-4"></i>
                 <span className="font-bold text-brand-primary text-lg">Quantidade de Ether</span>
-                <span className="text-lg font-bold text-gray-800 bg-gray-100 block mt-2 p-4 rounded-lg shadow-sm">
+                <span className="text-lg border border-brand-primary font-bold text-gray-800 bg-gray-50 block mt-2 p-4 rounded-lg shadow-sm">
                   2.5 ETH
                 </span>
               </div>

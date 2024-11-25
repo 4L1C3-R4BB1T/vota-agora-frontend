@@ -36,7 +36,7 @@ const useApi = (path: string = '') => {
             console.error('An error occurred while making the request: ', error);
             return null;
         } finally {
-            setTimeout(() => setLoading(false), 1000);
+            setTimeout(() => setLoading(false), 2000);
         }
     }, [path, getToken]);
 

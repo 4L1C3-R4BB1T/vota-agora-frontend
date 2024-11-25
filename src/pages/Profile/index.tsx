@@ -10,9 +10,9 @@ import { Input } from '@/components/ui/input';
 function ProfilePage() {
   return (
 <div className="container mx-auto p-6">
-  <Card className="shadow-lg">
+  <Card className="shadow-lg border-brand-primary">
     <div className="flex justify-center mt-4">
-      <div className="w-20 h-20 rounded-full bg-brand-primary text-white flex items-center justify-center text-4xl font-bold">
+      <div className="w-[100px] h-[100px] rounded-full bg-brand-primary text-white flex items-center justify-center text-4xl font-bold">
         GC
       </div>
     </div>
@@ -22,10 +22,8 @@ function ProfilePage() {
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <div className="bg-gray-100 p-4 rounded-lg mb-6 shadow">
-        <h2 className="text-xl font-semibold text-brand-primary">
-          Quantidade de Votos: <span className="font-bold">42</span>
-        </h2>
+      <div className="bg-gray-50 p-4 rounded-lg mb-6 shadow">
+ 
       </div>
       <form className="space-y-4">
         <div className="flex flex-col">
@@ -34,10 +32,22 @@ function ProfilePage() {
           </label>
           <Input
             type="text"
-            className="py-6 px-4 text-base border border-gray-300 focus:border-brand-primary focus:ring focus:ring-brand-primary rounded-md"
+            className="py-6 px-4 text-base border border-brand-primary bg-gray-50 focus:border-brand-primary focus:ring focus:ring-brand-primary rounded-md"
             name="fullName"
             id="fullName"
             defaultValue="Gabriel Cardoso"
+          />
+        </div>
+        <div className="flex flex-col">
+          <label className="font-semibold text-brand-primary mb-2" htmlFor="fullName">
+            <i className="fa-solid fa-image mr-2"></i> Imagem URL
+          </label>
+          <Input
+            type="text"
+            className="py-6 px-4 text-base border border-brand-primary bg-gray-50 focus:border-brand-primary focus:ring focus:ring-brand-primary rounded-md"
+            name="imageUrl"
+            id="imageUrl"
+            defaultValue={"Sem Foto"}
           />
         </div>
         <div className="flex flex-col">
@@ -47,7 +57,7 @@ function ProfilePage() {
           <Input
             type="text"
             name="cpf"
-            className="py-6 px-4 text-base border border-gray-300 focus:border-brand-primary focus:ring focus:ring-brand-primary rounded-md"
+            className="py-6 px-4 text-base border border-brand-primary bg-gray-50 focus:border-brand-primary focus:ring focus:ring-brand-primary rounded-md"
             id="cpf"
             defaultValue="123.456.789-00"
           />
