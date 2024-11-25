@@ -64,7 +64,7 @@ function CreatePublicConsultation() {
   const onSubmit = async () => {
     const errors = checkZodValidationErrors(inputs, createPublicConsultationSchema);
     if (errors) {
-      Object.entries(errors).forEach(([ , message ]) => toast.info(message as string, { theme: 'dark' }));
+      Object.entries(errors).forEach(([ , message ]) => toast.info(message as string));
       return;
     }
 
@@ -78,10 +78,10 @@ function CreatePublicConsultation() {
     const error = result as { [key: string]: any };
 
     if (error?.message && Array.isArray(error.message)) {
-        error.message.forEach(errorMessage => toast.error(errorMessage, { theme: 'dark' }));
+        error.message.forEach(errorMessage => toast.error(errorMessage));
         return
     } else if (error?.message) {
-        toast.error(error.message, { theme: 'dark'});
+        toast.error(error.message);
         return;
     }
 
@@ -162,7 +162,7 @@ function CreatePublicConsultation() {
   
               {/* Botão de criar consulta */}
               <div className="flex gap-2 justify-center mt-6">
-                <Button type="button" onClick={() => navigate('/home/dashboard')} className="bg-brand-secondary hover:opacity-80 py-5 text-lg mt-4 placeholder:text-lg text-white hover:bg-brand-primary/80 px-6 rounded-md shadow-lg transition duration-200">
+                <Button type="button" onClick={() => navigate('/home/dashboard')} className="bg-brand-primary hover:opacity-80 py-5 text-lg mt-4 placeholder:text-lg text-white hover:bg-brand-primary/80 px-6 rounded-md shadow-lg transition duration-200">
                   <i className="fa-solid fa-arrow-left"></i> Voltar
                 </Button>
                 <Button onClick={onSubmit} type="submit" className="bg-brand-primary hover:opacity-80 py-5 text-lg mt-4 placeholder:text-lg text-white hover:bg-brand-primary/80 px-6 rounded-md shadow-lg transition duration-200">

@@ -32,7 +32,7 @@ function LoginForm() {
     const signIn = async () => {
         const errors = checkZodValidationErrors(inputs, signFormSchema);
         if (errors) {
-            Object.entries(errors).forEach(([ , message ]) => toast.info(message, { theme: 'dark'}));
+            Object.entries(errors).forEach(([ , message ]) => toast.info(message));
             return;
         }
         const { document, password } = inputs;
@@ -46,16 +46,16 @@ function LoginForm() {
         const error = result as { [key: string]: any };
 
         if (error?.message && Array.isArray(error.message)) {
-            error.message.forEach(errorMessage => toast.error(errorMessage, { theme: 'dark'}));
+            error.message.forEach(errorMessage => toast.error(errorMessage));
             return;
         } else if (error?.message) {
-            toast.error(error.message, { theme: 'dark'});
+            toast.error(error.message);
             return;
         }
   
         const accessToken = result?.access_token as string;
         persistToken(accessToken as string);
-        toast.success('Login efetuado com sucesso.', { theme: 'dark'});
+        toast.success('Login efetuado com sucesso.');
         navigate('/home/dashboard');
     }
 

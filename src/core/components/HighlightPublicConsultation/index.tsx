@@ -31,9 +31,13 @@ function HighlightPublicConsultation() {
            const result = await request<PublicConsultation[]>({});
            if (!result) return;
            setData(result);
+           fetchData = false;
+           setTimeout(() => {
+                fetchData = true;
+           }, 200);
         }
         getData();
-        fetchData = false;
+     
     }, [request]);
 
     if (!data.length) {
@@ -47,9 +51,15 @@ function HighlightPublicConsultation() {
         <div>
             <Carousel>
                 <CarouselContent>
-                    <CarouselItem className="basis-1/4">
-                        <HighlightPublicConsultationItem/>
-                    </CarouselItem>
+                    { data.map(publicConsultation => {
+
+                        return (
+                            <CarouselItem key={publicConsultation.id} className="basis-1/4">
+                                <HighlightPublicConsultationItem data={publicConsultation}/>
+                            </CarouselItem>
+                        );
+                    })}
+                    
                     {/* <CarouselItem className="basis-1/4">
                         <HighlightPublicConsultationItem/>
                     </CarouselItem>

@@ -8,27 +8,52 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import { useNavigate } from "react-router-dom";
+import { PublicConsultation } from "../HighlightPublicConsultation";
 
-function HighlightPublicConsultationItem() {
+interface Props {
+  data: PublicConsultation;
+}
+
+function HighlightPublicConsultationItem(props: Props) {
+    const {
+      id,
+      category,
+      description,
+      imageUrl,
+      initialDate,
+      owner,
+      ownerName,
+      status,
+      title
+    } = props.data;
     const navigate = useNavigate();
 
    return (
     <Card className="flex-1  border border-brand-primary border-opacity-40 rounded-lg shadow-lg p-6 bg-white hover:shadow-xl transition-shadow duration-300">
-  
-    <span className="inline-block bg-brand-primary text-white text-xs font-bold px-2 py-1 rounded-full mb-4">
-      Aberta
-    </span>
+      
+      { status === 'open' && 
+        <span className="inline-block bg-brand-primary text-white text-xs font-bold px-2 py-1 rounded-full mb-4">
+          Aberta
+       </span>
+      }
+
+    { status === 'closed' && 
+        <span className="inline-block bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full mb-4">
+          Fechada
+       </span>
+      }
+   
   
     <CardHeader>
-      <CardTitle className="text-xl font-semibold text-brand-primary">Título da Consulta Pública</CardTitle>
+      <CardTitle className="text-xl font-semibold text-brand-primary">{ title }</CardTitle>
       <CardDescription className="text-sm text-brand-primary mt-1">
-        Descrição detalhada da consulta pública aqui. Esta é uma breve introdução que capta a atenção do leitor.
+        { description }
       </CardDescription>
     </CardHeader>
   
     <div className="mt-4">
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEOYV3zq0M-4q7oOcVAVYPdINmi0JXB87gnA&s" // Substitua por uma URL de imagem válida
+        src={imageUrl} // Substitua por uma URL de imagem válida
         alt="Descrição da Imagem"
         className="w-full h-40 object-cover rounded-lg"
       />
@@ -38,15 +63,15 @@ function HighlightPublicConsultationItem() {
       <div className="flex flex-col space-y-2">
         <div className="flex items-center">
           <div className="h-3 w-3 bg-gray-400 rounded-full mr-2"></div>
-          <span className="text-sm text-brand-primary"><strong>Dono:</strong> Nome do Owner</span>
+          <span className="text-sm text-brand-primary"><strong>Dono:</strong> { ownerName  }</span>
         </div>
         <div className="flex items-center">
           <div className="h-3 w-3 bg-green-500 rounded-full mr-2"></div>
-          <span className="text-sm text-brand-primary"><strong>Data de Início:</strong> DD/MM/YYYY</span>
+          <span className="text-sm text-brand-primary"><strong>Data de Início:</strong> { initialDate.toString() }</span>
         </div>
         <div className="flex items-center">
           <div className="h-3 w-3 bg-red-500 rounded-full mr-2"></div>
-          <span className="text-sm text-brand-primary"><strong>Data de Fim:</strong> DD/MM/YYYY</span>
+          <span className="text-sm text-brand-primary"><strong>Data de Fim:</strong> { initialDate.toString() }</span>
         </div>
       </div>
     </CardContent>

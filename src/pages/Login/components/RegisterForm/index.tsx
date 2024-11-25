@@ -45,7 +45,7 @@ function RegisterForm() {
     const register = async () => {
         const errors = checkZodValidationErrors(inputs, createAccountFormSchema);
         if (errors) {
-            Object.entries(errors).forEach(([ , message ]) => toast.info(message, { theme: 'dark'}));
+            Object.entries(errors).forEach(([ , message ]) => toast.info(message));
             return;
         }
         const { fullName, document, password, confirmationPassword } = inputs;
@@ -64,11 +64,11 @@ function RegisterForm() {
         const error = result as { [key: string]: any };
 
         if (error?.message && Array.isArray(error.message)) {
-            error.message.forEach(errorMessage => toast.error(errorMessage, { theme: 'dark'}));
+            error.message.forEach(errorMessage => toast.error(errorMessage));
         } else if (error?.message) {
             toast.error(error.message, { theme: 'dark'})
         } else {
-            toast.success('Conta criada com sucesso.', { theme: 'dark' });
+            toast.success('Conta criada com sucesso.');
             navigate('/auth');
         }
     }
