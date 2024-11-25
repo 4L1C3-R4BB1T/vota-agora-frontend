@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import FormField from "@/core/components/FormField";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from '../../../../assets/logo.png';
 import { useMask } from "@react-input/mask";
 import { z } from "zod";
@@ -34,6 +34,7 @@ function RegisterForm() {
         replacement: { _: /\d/}
     });
     const { loading, error, request } = useApi();
+    const navigate = useNavigate();
 
     const onFormChange = (event: React.ChangeEvent<HTMLFormElement>) => {
         const { name, value } = event.target;
@@ -61,6 +62,7 @@ function RegisterForm() {
 
         if (!error) {
             toast.success('Conta criada com sucesso.', { theme: 'dark' });
+            navigate('/auth');
             return;
         }
 
@@ -89,17 +91,17 @@ function RegisterForm() {
                 </div>
                 <form className="mt-4" onChange={onFormChange}>
                     <div className="mb-5 mt-4">
-                        <FormField name="fullName" label="Nome Completo" type="text" placeholder="Digite seu nome completo" className="p-6 text-lg bg-white"/>
+                        <FormField name="fullName" label="Nome Completo" type="text" placeholder="Digite seu nome completo" className="p-6 text-lg bg-gray-200"/>
                     </div>
 
-                    <FormField name="document" ref={cpfRef} label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg bg-white"/>
+                    <FormField name="document" ref={cpfRef} label="CPF" placeholder="Digite seu CPF" className="p-6 bg-gray-200 text-lg"/>
           
                     <div className="mt-5">
-                        <FormField name="password" label="Senha" type="password" placeholder="Digite a senha" className="p-6 text-lg bg-white"/>
+                        <FormField name="password" label="Senha" type="password" placeholder="Digite a senha" className="p-6 text-lg bg-gray-200"/>
                     </div>
 
                     <div className="mt-5">
-                        <FormField name="confirmationPassword" label="Confirmar Senha" type="password" placeholder="Digite a senha novamente" className="p-6 text-lg bg-white"/>
+                        <FormField name="confirmationPassword" label="Confirmar Senha" type="password" placeholder="Digite a senha novamente" className="p-6 text-lg bg-gray-200"/>
                     </div>
                     <Button onClick={register} type="button" className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Cadastrar</Button>
                     <p className="text-lg text-center">Já possui uma conta? <Link to="/auth" className="text-brand-primary">Faça Login</Link></p>

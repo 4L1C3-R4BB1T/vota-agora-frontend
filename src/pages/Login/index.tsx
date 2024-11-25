@@ -26,7 +26,7 @@ function LoginPage() {
                     O futuro não se constrói sozinho. Sua voz é a chave para a mudança. <br/> Vote e faça parte da transformação!
                 </p>
             </section>
-            <section className="relative bg-gray-100">
+            <section className="relative bg-white ">
                 <div className="slide-in-left h-full">
                     <Outlet/>
                 </div>

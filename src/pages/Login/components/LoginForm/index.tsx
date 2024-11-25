@@ -52,6 +52,7 @@ function LoginForm() {
         const accessToken = result?.access_token as string;
         persistToken(accessToken as string);
         toast.success('Login efetuado com sucesso.', { theme: 'dark'});
+        navigate('/home/dashboard');
     }
 
     const onFormChange = (event: React.ChangeEvent<HTMLFormElement>) => {
@@ -79,10 +80,10 @@ function LoginForm() {
                     </p>
                 </div>
                 <form className="mt-4" onChange={onFormChange}>
-                   <FormField name="document" ref={cpfRef} label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg bg-white"/>
+                   <FormField name="document" ref={cpfRef} label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg bg-gray-200"/>
 
                    <div className="mt-5">
-                        <FormField name="password" label="Senha" type="password" placeholder="Digite sua Senha" className='p-6 text-lg bg-white'/>
+                        <FormField name="password" label="Senha" type="password" placeholder="Digite sua Senha" className='p-6 text-lg bg-gray-200'/>
                    </div>
                     <Button type="button" onClick={signIn} className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Login</Button>
                     <p className="text-lg text-center">Não possui uma conta? <Link to="register" className="text-brand-primary">Cadastre-se</Link></p>
