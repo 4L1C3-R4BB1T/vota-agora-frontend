@@ -13,6 +13,9 @@ import PublicConsultationViewPage from '@/pages/PublicConsultationView';
 import PublicConsultationPage from '@/pages/PublicConsultation';
 import CreatePublicConsultation from '@/pages/CreatePublicConsultation';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-photo-view/dist/react-photo-view.css';
+import { ToastContainer } from 'react-toastify';
+import React from 'react';
 
 export interface BreadcrumbOptions {
   label: string;
@@ -151,7 +154,8 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <React.Fragment>
     <RouterProvider router={router}/>
-  </StrictMode>,
+    <ToastContainer/>
+  </React.Fragment>,
 )

@@ -2,7 +2,6 @@ import vote from '@/assets/vote.png';
 import React from 'react';
 import { Mosaic } from 'react-loading-indicators';
 import { Outlet } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
 function LoginPage() {
     const [loading, setLoading] = React.useState(true);
@@ -26,12 +25,11 @@ function LoginPage() {
                     O futuro não se constrói sozinho. Sua voz é a chave para a mudança. <br/> Vote e faça parte da transformação!
                 </p>
             </section>
-            <section className="relative bg-white ">
+            <section className="relative  ">
                 <div className="slide-in-left h-full">
                     <Outlet/>
                 </div>
             </section>
-            <ToastContainer/>
         </div>
     );
 }

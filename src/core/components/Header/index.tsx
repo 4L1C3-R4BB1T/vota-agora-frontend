@@ -22,7 +22,7 @@ import useTimer from '@/core/hooks/useTimer';
 import { BreadcrumbOptions } from '@/main';
 import React from 'react';
 import { useMatches, useNavigate } from 'react-router-dom';
-import logo from '../../../assets/logo.png';
+import logo from '../../../assets/logo_white.png';
   
   
 function Header() {
@@ -37,7 +37,7 @@ function Header() {
     }, [route, breadcrumbs]);
 
     return (
-        <header className="bg-white shadow-md">
+        <header className="bg-brand-secondary shadow-md  rounded-bl-2xl rounded-br-2xl">
           <div className="container mx-auto flex items-center justify-between p-4">
             {/* Logo */}
             <div className="flex items-center cursor-pointer" onClick={() => navigate('/home/dashboard')}>
@@ -49,12 +49,12 @@ function Header() {
               {/* Barra de Pesquisa */}
               <div className="flex items-center gap-2">
                 <Input
-                  className="text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
+                  className="text-base border bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary"
                   type="search"
                   placeholder="Pesquisar"
                 />
-                <Button className="bg-brand-primary hover:bg-brand-primary hover:opacity-80 rounded-lg">
-                  <i className="fa-solid fa-magnifying-glass"></i>
+                <Button className="bg-white hover:bg-white rounded-lg">
+                  <i className="fa-solid fa-magnifying-glass text-black"></i>
                 </Button>
               </div>
     
@@ -65,11 +65,11 @@ function Header() {
                   <AvatarFallback>G</AvatarFallback>
                 </Avatar>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="ml-2 outline-none bg-brand-primary hover:opacity-80 text-primary-foreground shadow px-4 py-1.5 rounded-md">
+                  <DropdownMenuTrigger className="ml-2 outline-none text-black bg-white hover:bg-white text-primary-foreground shadow px-4 py-1.5 rounded-md">
                     <i className="fa-solid fa-bars"></i>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="mt-3 rounded-lg shadow-lg">
-                    <DropdownMenuLabel className="text-brand-primary">Olá, Gabriel Cardoso</DropdownMenuLabel>
+                  <DropdownMenuContent className="mt-3 rounded-lg shadow-lg bg-brand-secondary text-white">
+                    <DropdownMenuLabel className="text-white">Olá, Gabriel Cardoso</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={() => navigate('/home/profile')}>Perfil</DropdownMenuItem>
                     <DropdownMenuItem onClick={() => navigate('/home/wallet')}>Carteira</DropdownMenuItem>
@@ -79,7 +79,7 @@ function Header() {
               </div>
     
               {/* Timer */}
-              <div className="flex items-center gap-2 text-brand-primary">
+              <div className="flex items-center text-white gap-2 text-lg text-brand-primary">
                 <span>{timerFormatted()}</span>
                 <i className="fa-solid fa-clock"></i>
               </div>
@@ -87,7 +87,7 @@ function Header() {
           </div>
     
           {/* Barra de Navegação */}
-          <div className="p-4 bg-brand-primary rounded-bl-2xl rounded-br-2xl shadow-lg">
+          <div className="pb-4  px-4 rounded-bl-2xl rounded-br-2xl shadow-lg">
             <div className="mx-4">
               <Breadcrumb>
                 <BreadcrumbList>
@@ -95,14 +95,14 @@ function Header() {
                     breadcrumbs.map(({label, to}, index) => {
                       
                       return (
-                        <React.Fragment>
+                        <React.Fragment key={index}>
                           { index % 2 != 0 &&  
                             <BreadcrumbSeparator>
                              <ChevronsRight className="text-white relative top-0.5" />
                             </BreadcrumbSeparator>
                           }
-                          <BreadcrumbItem key={index}>
-                            <BreadcrumbLink className='text-white hover:text-white hover:opacity-80' href={to}>{label}</BreadcrumbLink>
+                          <BreadcrumbItem>
+                            <BreadcrumbLink className='text-white hover:text-white hover:opacity-80 cursor-pointer text-base' onClick={() => navigate(to)}>{label}</BreadcrumbLink>
                           </BreadcrumbItem>
                         </React.Fragment>
                       );

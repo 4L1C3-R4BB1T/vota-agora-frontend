@@ -17,13 +17,12 @@ const signFormSchema = z.object({
 })
 
 function LoginForm() {
-    const [errors, setErrors] = React.useState<{ [key: string]: string }>({});
     const [inputs, setInputs] = React.useState({
         document: '',
         password: '',
     });
     const navigate = useNavigate();
-    const { loading, request, error } = useApi();
+    const { loading, request } = useApi();
     const { persistToken } = useAuth();
     const cpfRef = useMask({
         mask: '___.___.___-__',
@@ -31,7 +30,8 @@ function LoginForm() {
     })
 
     const signIn = async () => {
-        if (checkZodValidationErrors(inputs, signFormSchema, setErrors)) {
+        const errors = checkZodValidationErrors(inputs, signFormSchema);
+        if (errors) {
             Object.entries(errors).forEach(([ , message ]) => toast.info(message, { theme: 'dark'}));
             return;
         }
@@ -41,14 +41,18 @@ function LoginForm() {
             method: 'POST', 
             body: { document, password, },
         });
-        if (error) {
-            if (error?.message && Array.isArray(error.message)) {
-                error.message.forEach(errorMessage => toast.error(errorMessage, { theme: 'dark'}));
-            } else if (error?.message) {
-                toast.error(error.message, { theme: 'dark'})
-            }
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const error = result as { [key: string]: any };
+
+        if (error?.message && Array.isArray(error.message)) {
+            error.message.forEach(errorMessage => toast.error(errorMessage, { theme: 'dark'}));
+            return;
+        } else if (error?.message) {
+            toast.error(error.message, { theme: 'dark'});
             return;
         }
+  
         const accessToken = result?.access_token as string;
         persistToken(accessToken as string);
         toast.success('Login efetuado com sucesso.', { theme: 'dark'});
@@ -79,13 +83,13 @@ function LoginForm() {
                     Faça login para continuar
                     </p>
                 </div>
-                <form className="mt-4" onChange={onFormChange}>
+                <form className="mt-4" onChange={onFormChange} onSubmit={event => event.preventDefault()}>
                    <FormField name="document" ref={cpfRef} label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg bg-gray-200"/>
 
                    <div className="mt-5">
                         <FormField name="password" label="Senha" type="password" placeholder="Digite sua Senha" className='p-6 text-lg bg-gray-200'/>
                    </div>
-                    <Button type="button" onClick={signIn} className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Login</Button>
+                    <Button onClick={signIn} className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Login</Button>
                     <p className="text-lg text-center">Não possui uma conta? <Link to="register" className="text-brand-primary">Cadastre-se</Link></p>
                 </form>
             </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { RadioGroup } from '@radix-ui/react-radio-group'; // Importar o RadioGroup do Radix UI, se necessário
 import { RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@radix-ui/react-label';
@@ -12,9 +12,13 @@ const PublicConsultationOptions = () => {
     setOtherCategory(event.target.value);
   };
 
+  const onValueChange = (value: string) => {
+    setSelectedOption(value);
+  } 
+
   return (
     <div className="flex flex-col space-y-4">
-      <RadioGroup className="flex flex-col gap-2" value={selectedOption} onValueChange={setSelectedOption}>
+      <RadioGroup name="category" className="flex flex-col gap-2" value={selectedOption} onValueChange={onValueChange}>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="public_health" id="r1" />
           <Label htmlFor="r1">Saúde</Label>
@@ -36,6 +40,7 @@ const PublicConsultationOptions = () => {
       {selectedOption === 'other' && (
         <div className="mt-2">
           <Input
+            name="category"
             type="text"
             placeholder="Especifique"
             value={otherCategory}

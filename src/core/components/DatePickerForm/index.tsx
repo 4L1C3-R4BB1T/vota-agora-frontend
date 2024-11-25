@@ -10,9 +10,18 @@ import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import React from "react";
 
+interface Props {
+  name: string;
+  onSelectionDate: (property: string, value: Date | undefined) => void;
+}
 
-function DatePickerForm() {
+function DatePickerForm({ name, onSelectionDate }: Props) {
     const [date, setDate] = React.useState<Date>()
+
+    const onChange = (date: Date | undefined) => {
+      setDate(date);
+      onSelectionDate(name, date);
+    }
  
     return (
       <Popover>
@@ -20,7 +29,7 @@ function DatePickerForm() {
           <Button
             variant={"outline"}
             className={cn(
-              "w-[240px] justify-start text-left font-normal",
+              "w-80 text-brand-secondary py-5 justify-start text-left font-normal",
               !date && "text-muted-foreground"
             )}
           >
@@ -32,7 +41,7 @@ function DatePickerForm() {
           <Calendar
             mode="single"
             selected={date}
-            onSelect={setDate}
+            onSelect={onChange}
             className="w-full"
             initialFocus
           />

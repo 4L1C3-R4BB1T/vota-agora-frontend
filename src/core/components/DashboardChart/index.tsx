@@ -16,50 +16,108 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import useApi from "@/core/hooks/useApi"
 
 export const description = "An interactive line chart"
 
-const chartData = [
-  { date: "2024-04-01", desktop: 222, mobile: 150 },
-]
+// const chartData = [
+//   { date: "2024-04-01", desktop: 222, mobile: 150 },
+// ]
 
 const chartConfig = {
   views: {
-    label: "Page Views",
+    label: "Total",
   },
-  desktop: {
+  publicConsultations: {
     label: "Criadas",
     color: "var(--primary-color)",
   },
-  mobile: {
+  votes: {
     label: "Votadas",
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig
 
+
+interface CreatedByMonth {
+  year: number;
+  month: number;
+  day: number;
+  totalCreated: number;
+}
+
+interface ChartData {
+  date: string;
+  publicConsultations: number;
+  votes: number;
+}
+
+interface ChatDataAPIResponse {
+  publicConsultationCreatedByMonth: CreatedByMonth[];
+  votesCreatedByMonth: CreatedByMonth[];
+}
+
 function DashboardChart() {
-  const [activeChart, setActiveChart] =
-    React.useState<keyof typeof chartConfig>("desktop")
+  const [activeChart, setActiveChart] = React.useState<keyof typeof chartConfig>("publicConsultations")
+  const [chartData, setChartData] = React.useState<ChartData[] | null>(null);
+  const { request } = useApi();
+
+  React.useEffect(() => {
+    if (chartData) return;
+    const getChartData = async () => {
+      const data = await request<ChatDataAPIResponse>({
+        endpoint: '/public-consultation/stats/by-month',
+      });
+
+      //{ date: "2024-04-01", desktop: 222, mobile: 150 },
+      const mapToChartDataPublicConsultation = (({ year, month, day, totalCreated }: CreatedByMonth) => {
+        return {
+          date: `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`,
+          publicConsultations: totalCreated,
+          votes: 0,
+        };
+      });
+
+      const mapToChartDataVote = (({ year, month, day, totalCreated }: CreatedByMonth) => {
+        return {
+          date: `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`,
+          votes: totalCreated,
+          publicConsultations: 0,
+        };
+      });
+
+      const set1 = data?.publicConsultationCreatedByMonth.map(mapToChartDataPublicConsultation) ?? [];
+      const set2 = data?.votesCreatedByMonth.map(mapToChartDataVote) ?? [];
+
+      const chartData = [
+        ...set1,
+        ...set2
+      ];
+
+      setChartData(chartData);
+    };
+    getChartData()
+  }, [request, chartData]);
 
   const total = React.useMemo(
     () => ({
-      desktop: chartData.reduce((acc, curr) => acc + curr.desktop, 0),
-      mobile: chartData.reduce((acc, curr) => acc + curr.mobile, 0),
+      publicConsultations: chartData?.reduce((acc, curr) => acc + curr.publicConsultations, 0) ?? 0,
+      votes: chartData?.reduce((acc, curr) => acc + curr.votes, 0) ?? 0,
     }),
-    []
+    [chartData]
   )
 
   return (
-    <Card>
+    <Card className="border border-black border-opacity-40">
       <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
-        <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
+        <div className="flex text-2xl flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
           <CardTitle>Informação</CardTitle>
           <CardDescription>
             Exibindo o total de consultas criadas e votadas no mês
           </CardDescription>
         </div>
         <div className="flex">
-          {["desktop", "mobile"].map((key) => {
+          {["publicConsultations", "votes"].map((key) => {
             const chart = key as keyof typeof chartConfig
             return (
               <button
@@ -68,11 +126,11 @@ function DashboardChart() {
                 className="flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
                 onClick={() => setActiveChart(chart)}
               >
-                <span className="text-xs text-muted-foreground">
+                <span className="text-base text-muted-foreground">
                   {chartConfig[chart].label}
                 </span>
-                <span className="text-lg font-bold leading-none sm:text-3xl text-brand-primary">
-                  {total[key as keyof typeof total].toLocaleString()}
+                <span className="text-lg font-bold leading-none sm:text-3xl text-brand-secondary">
+                  {total[key as keyof typeof total]?.toLocaleString()}
                 </span>
               </button>
             )
@@ -86,7 +144,7 @@ function DashboardChart() {
         >
           <LineChart
             accessibilityLayer
-            data={chartData}
+            data={chartData ?? []}
             margin={{
               left: 12,
               right: 12,

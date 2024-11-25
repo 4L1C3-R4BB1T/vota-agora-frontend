@@ -22,7 +22,6 @@ const createAccountFormSchema = z.object({
 
 
 function RegisterForm() {
-    const [errors, setErrors] = React.useState<{ [key: string]: string }>({});
     const [inputs, setInputs] = React.useState({
         fullName: '',
         document: '',
@@ -33,7 +32,7 @@ function RegisterForm() {
         mask: '___.___.___-__',
         replacement: { _: /\d/}
     });
-    const { loading, error, request } = useApi();
+    const { loading, request } = useApi();
     const navigate = useNavigate();
 
     const onFormChange = (event: React.ChangeEvent<HTMLFormElement>) => {
@@ -44,12 +43,13 @@ function RegisterForm() {
     }
 
     const register = async () => {
-        if (checkZodValidationErrors(inputs, createAccountFormSchema, setErrors)) {
+        const errors = checkZodValidationErrors(inputs, createAccountFormSchema);
+        if (errors) {
             Object.entries(errors).forEach(([ , message ]) => toast.info(message, { theme: 'dark'}));
             return;
         }
         const { fullName, document, password, confirmationPassword } = inputs;
-        await request({
+        const result = await request({
             endpoint: '/users',
             method: 'POST',
             body: {
@@ -60,16 +60,16 @@ function RegisterForm() {
             }
         });
 
-        if (!error) {
-            toast.success('Conta criada com sucesso.', { theme: 'dark' });
-            navigate('/auth');
-            return;
-        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const error = result as { [key: string]: any };
 
         if (error?.message && Array.isArray(error.message)) {
             error.message.forEach(errorMessage => toast.error(errorMessage, { theme: 'dark'}));
         } else if (error?.message) {
             toast.error(error.message, { theme: 'dark'})
+        } else {
+            toast.success('Conta criada com sucesso.', { theme: 'dark' });
+            navigate('/auth');
         }
     }
 
@@ -89,7 +89,7 @@ function RegisterForm() {
                         E faça parte dessa comunidade vibrante!
                     </p>
                 </div>
-                <form className="mt-4" onChange={onFormChange}>
+                <form className="mt-4" onChange={onFormChange} onSubmit={event => event.preventDefault()}>
                     <div className="mb-5 mt-4">
                         <FormField name="fullName" label="Nome Completo" type="text" placeholder="Digite seu nome completo" className="p-6 text-lg bg-gray-200"/>
                     </div>
@@ -103,7 +103,7 @@ function RegisterForm() {
                     <div className="mt-5">
                         <FormField name="confirmationPassword" label="Confirmar Senha" type="password" placeholder="Digite a senha novamente" className="p-6 text-lg bg-gray-200"/>
                     </div>
-                    <Button onClick={register} type="button" className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Cadastrar</Button>
+                    <Button onClick={register} className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Cadastrar</Button>
                     <p className="text-lg text-center">Já possui uma conta? <Link to="/auth" className="text-brand-primary">Faça Login</Link></p>
                 </form>
             </div>

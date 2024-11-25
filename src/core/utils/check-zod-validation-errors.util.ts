@@ -1,10 +1,8 @@
-import React from "react";
 import { ZodError, ZodSchema } from "zod";
 
 
-function checkZodValidationErrors<T extends object>(target: T, schema: ZodSchema, setErrors: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>) {
+function checkZodValidationErrors<T extends object>(target: T, schema: ZodSchema) {
     try {
-        setErrors({});
         schema.parse(target);
         return false;
     } catch(error) {
@@ -14,8 +12,7 @@ function checkZodValidationErrors<T extends object>(target: T, schema: ZodSchema
             mapErrors[propertyName] = `${error.message}`;
             return mapErrors;
         }, {} as { [key: string]: string });
-        setErrors(errors);
-        return true;
+        return errors;
     } 
 }
 
