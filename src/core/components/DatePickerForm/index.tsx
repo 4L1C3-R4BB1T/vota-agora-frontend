@@ -29,7 +29,7 @@ function DatePickerForm({ name, onSelectionDate }: Props) {
           <Button
             variant={"outline"}
             className={cn(
-              "w-80 text-brand-secondary py-5 justify-start text-left font-normal",
+              "w-80 border-brand-primary text-brand-secondary py-5 justify-start text-left font-normal",
               !date && "text-muted-foreground"
             )}
           >

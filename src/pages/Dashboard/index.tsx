@@ -9,14 +9,14 @@ function DashboardPage() {
     return (
         <div>
            <div>
-                <h1 className="text-2xl mb-4 font-medium text-brand-secondary">Consultas Públicas</h1>
+                <h1 className="text-2xl mb-4 font-medium text-brand-primary">Consultas Públicas</h1>
                 <DashboardChart/>
            </div>
            <div className="mt-5">
                 <h1 className="text-2xl mb-4 font-medium text-brand-primary">Em Destaque</h1>
                 <HighlightPublicConsultation/>
            </div>
-           <div className="mt-5 flex flex-col items-center justify-center p-8 border bg-white rounded-lg  shadow-md">
+           <div className="mt-5 border-brand-primary flex flex-col items-center justify-center p-8 border bg-white rounded-lg  shadow-md">
                 <h1 className="text-3xl font-semibold text-brand-primary mb-2">Faça a sua parte</h1>
                 <p className="text-base text-brand-primary mb-6">
                     Participe ativamente! Publique uma consulta pública e tenha a chance de ganhar prêmios incríveis.

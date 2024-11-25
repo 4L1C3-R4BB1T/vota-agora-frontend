@@ -108,9 +108,9 @@ function DashboardChart() {
   )
 
   return (
-    <Card className="border border-black border-opacity-40">
+    <Card className="border border-brand-primary border-opacity-40">
       <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
-        <div className="flex text-2xl flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
+        <div className="flex text-2xl flex-1 text-brand-primary flex-col justify-center gap-1 px-6 py-5 sm:py-6">
           <CardTitle>Informação</CardTitle>
           <CardDescription>
             Exibindo o total de consultas criadas e votadas no mês
@@ -126,10 +126,10 @@ function DashboardChart() {
                 className="flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
                 onClick={() => setActiveChart(chart)}
               >
-                <span className="text-base text-muted-foreground">
+                <span className="text-base text-brand-primary">
                   {chartConfig[chart].label}
                 </span>
-                <span className="text-lg font-bold leading-none sm:text-3xl text-brand-secondary">
+                <span className="text-lg font-bold leading-none sm:text-3xl text-brand-primary">
                   {total[key as keyof typeof total]?.toLocaleString()}
                 </span>
               </button>

@@ -13,7 +13,7 @@ function HighlightPublicConsultationItem() {
     const navigate = useNavigate();
 
    return (
-    <Card className="flex-1 border rounded-lg shadow-lg p-6 bg-white hover:shadow-xl transition-shadow duration-300">
+    <Card className="flex-1  border border-brand-primary border-opacity-40 rounded-lg shadow-lg p-6 bg-white hover:shadow-xl transition-shadow duration-300">
   
     <span className="inline-block bg-brand-primary text-white text-xs font-bold px-2 py-1 rounded-full mb-4">
       Aberta

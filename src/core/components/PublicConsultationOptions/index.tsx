@@ -18,7 +18,7 @@ const PublicConsultationOptions = () => {
 
   return (
     <div className="flex flex-col space-y-4">
-      <RadioGroup name="category" className="flex flex-col gap-2" value={selectedOption} onValueChange={onValueChange}>
+      <RadioGroup name="category" className="flex text-brand-primary flex-col gap-2" value={selectedOption} onValueChange={onValueChange}>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="public_health" id="r1" />
           <Label htmlFor="r1">Saúde</Label>

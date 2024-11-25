@@ -37,7 +37,7 @@ function Header() {
     }, [route, breadcrumbs]);
 
     return (
-        <header className="bg-brand-secondary shadow-md  rounded-bl-2xl rounded-br-2xl">
+        <header className="bg-brand-primary shadow-md  rounded-bl-2xl rounded-br-2xl">
           <div className="container mx-auto flex items-center justify-between p-4">
             {/* Logo */}
             <div className="flex items-center cursor-pointer" onClick={() => navigate('/home/dashboard')}>
@@ -54,7 +54,7 @@ function Header() {
                   placeholder="Pesquisar"
                 />
                 <Button className="bg-white hover:bg-white rounded-lg">
-                  <i className="fa-solid fa-magnifying-glass text-black"></i>
+                  <i className="fa-solid fa-magnifying-glass text-brand-primary"></i>
                 </Button>
               </div>
     
@@ -65,10 +65,10 @@ function Header() {
                   <AvatarFallback>G</AvatarFallback>
                 </Avatar>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="ml-2 outline-none text-black bg-white hover:bg-white text-primary-foreground shadow px-4 py-1.5 rounded-md">
+                  <DropdownMenuTrigger className="ml-2 outline-none text-brand-primary bg-white hover:bg-white shadow px-4 py-1.5 rounded-md">
                     <i className="fa-solid fa-bars"></i>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="mt-3 rounded-lg shadow-lg bg-brand-secondary text-white">
+                  <DropdownMenuContent className="mt-3 rounded-lg shadow-lg bg-brand-primary  text-white">
                     <DropdownMenuLabel className="text-white">Olá, Gabriel Cardoso</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={() => navigate('/home/profile')}>Perfil</DropdownMenuItem>

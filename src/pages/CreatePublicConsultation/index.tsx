@@ -91,9 +91,9 @@ function CreatePublicConsultation() {
 
     return (
         <div className="container  mx-auto p-6">
-        <Card className="shadow-lg border border-black border-opacity-80 bg-white">
+        <Card className="shadow-lg border border-brand-primary border-opacity-80 bg-white">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-white bg-brand-secondary p-4 rounded-md flex items-center">
+            <CardTitle className="text-2xl font-bold text-white bg-brand-primary p-4 rounded-md flex items-center">
               <i className="fas fa-plus-circle mr-2"></i> Criar Consulta Pública
             </CardTitle>
           </CardHeader>
@@ -101,7 +101,7 @@ function CreatePublicConsultation() {
             <form className="space-y-4" onChange={onFormChange} onSubmit={event => event.preventDefault()}>
               {/* Campo para título */}
               <div className="flex flex-col">
-                <label className="font-semibold text-brand-secondary mb-2 text-lg" htmlFor="title">
+                <label className="font-semibold text-brand-primary mb-2 text-lg" htmlFor="title">
                   <i className="fas fa-comment-dots mr-2"></i> Título:
                 </label>
                 <Input
@@ -109,27 +109,27 @@ function CreatePublicConsultation() {
                   name="title"
                   id="title"
                   placeholder="Digite o título da consulta"
-                  className="border-gray-300 focus:border-brand-primary p-6 text-base"
+                  className="border-brand-primary focus:border-brand-primary p-6 text-base"
                 />
               </div>
   
               {/* Campo para descrição */}
               <div className="flex flex-col">
-                <label className="font-semibold text-brand-secondary mb-2 text-lg" htmlFor="description">
+                <label className="font-semibold text-brand-primary mb-2 text-lg" htmlFor="description">
                   <i className="fas fa-align-left mr-2"></i> Descrição:
                 </label>
                 <Textarea
                   name="description"
                   id="description"
                   placeholder="Descreva a consulta"
-                  className="border-gray-300 focus:border-brand-primary p-3 text-base"
+                  className="border-brand-primary focus:border-brand-primary p-3 text-base"
                   rows={4}
                 />
               </div>
 
                 {/* Campo para URL da imagem */}
                 <div className="flex flex-col">
-                  <label className="font-semibold text-brand-secondary mb-2 text-lg" htmlFor="imageUrl">
+                  <label className="font-semibold text-brand-primary mb-2 text-lg" htmlFor="imageUrl">
                     <i className="fas fa-image mr-2"></i> URL da Imagem:
                   </label>
                   <Input
@@ -137,13 +137,13 @@ function CreatePublicConsultation() {
                     name="imageUrl"
                     id="imageUrl"
                     placeholder="Insira a URL da imagem"
-                    className="border-gray-300 focus:border-brand-primary p-6 text-base"
+                    className="border-brand-primary focus:border-brand-primary p-6 text-base"
                   />
               </div>
   
               {/* Campo para categoria */}
               <div className="flex flex-col">
-                <label className="font-semibold text-brand-secondary mb-2 text-lg" htmlFor="category">
+                <label className="font-semibold text-brand-primary mb-2 text-lg" htmlFor="category">
                   <i className="fas fa-tags mr-2"></i> Categoria:
                 </label>
                 
@@ -153,7 +153,7 @@ function CreatePublicConsultation() {
               {/* Campo para data de início */}
               <div className="flex gap-5 mt-5">
                 <div className="flex flex-col">
-                  <label className="font-semibold text-brand-secondary mb-2 relative top-0.5 text-lg" htmlFor="endDate">
+                  <label className="font-semibold text-brand-primary mb-2 relative top-0.5 text-lg" htmlFor="endDate">
                     <i className="fas fa-calendar-times mr-2"></i> Data de Encerramento:
                   </label>
                   <DatePickerForm onSelectionDate={setDate} name="endDate"/>
@@ -165,7 +165,7 @@ function CreatePublicConsultation() {
                 <Button type="button" onClick={() => navigate('/home/dashboard')} className="bg-brand-secondary hover:opacity-80 py-5 text-lg mt-4 placeholder:text-lg text-white hover:bg-brand-primary/80 px-6 rounded-md shadow-lg transition duration-200">
                   <i className="fa-solid fa-arrow-left"></i> Voltar
                 </Button>
-                <Button onClick={onSubmit} type="submit" className="bg-green-800 hover:opacity-80 py-5 text-lg mt-4 placeholder:text-lg text-white hover:bg-brand-primary/80 px-6 rounded-md shadow-lg transition duration-200">
+                <Button onClick={onSubmit} type="submit" className="bg-brand-primary hover:opacity-80 py-5 text-lg mt-4 placeholder:text-lg text-white hover:bg-brand-primary/80 px-6 rounded-md shadow-lg transition duration-200">
                   Publicar
                 </Button>
               </div>
