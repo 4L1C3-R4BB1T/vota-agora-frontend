@@ -32,7 +32,6 @@ export interface UserInfo {
   imageUrl: string;
   document: string;
 }
-
 let canLoadUserInfo = true;
   
 function Header() {
