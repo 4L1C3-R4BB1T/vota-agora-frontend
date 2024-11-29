@@ -92,7 +92,7 @@ const router = createBrowserRouter([
         }
       },
       {
-        path: 'public-consultation-view',
+        path: 'public-consultation-view/:id',
         element: <PublicConsultationViewPage/>,
         loader() {
           return {
@@ -102,8 +102,8 @@ const router = createBrowserRouter([
                 to: '/home/dashboard', 
               },
               {
-                label: 'Visualizar Consulta Pública',
-                to: '/home/public-consultation-view', 
+                label: 'Voltar',
+                to: '/home/dashboard', 
               },
             ] as BreadcrumbOptions[]
           };

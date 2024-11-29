@@ -107,6 +107,21 @@ function DashboardChart() {
     [chartData]
   )
 
+  if (!chartData || !chartData.length) {
+        return (
+          <div className="flex flex-col items-center justify-center h-full p-6 text-center bg-gray-50 border border-gray-200 rounded-lg shadow-sm">
+            <div className="flex flex-col items-center">
+              <i className="fas fa-chart-bar text-brand-primary text-6xl mb-4"></i>
+              <span className="text-lg font-medium text-brand-primary">
+                Não há nenhum dado para exibir
+              </span>
+            </div>
+        </div>
+        );
+    }
+    
+  
+
   return (
     <Card className="border border-brand-primary border-opacity-40">
       <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">

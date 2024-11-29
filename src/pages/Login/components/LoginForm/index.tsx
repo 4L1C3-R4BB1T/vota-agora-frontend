@@ -84,10 +84,10 @@ function LoginForm() {
                     </p>
                 </div>
                 <form className="mt-4" onChange={onFormChange} onSubmit={event => event.preventDefault()}>
-                   <FormField name="document" ref={cpfRef} label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg bg-gray-200"/>
+                   <FormField name="document" ref={cpfRef} label="CPF" placeholder="Digite seu CPF" className="p-6 text-lg bg-gray-50"/>
 
                    <div className="mt-5">
-                        <FormField name="password" label="Senha" type="password" placeholder="Digite sua Senha" className='p-6 text-lg bg-gray-200'/>
+                        <FormField name="password" label="Senha" type="password" placeholder="Digite sua Senha" className='p-6 text-lg bg-gray-50'/>
                    </div>
                     <Button onClick={signIn} className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Login</Button>
                     <p className="text-lg text-center">Não possui uma conta? <Link to="register" className="text-brand-primary">Cadastre-se</Link></p>

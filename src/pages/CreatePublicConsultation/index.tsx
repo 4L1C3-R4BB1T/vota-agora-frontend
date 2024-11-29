@@ -28,7 +28,6 @@ const createPublicConsultationSchema = z.object({
   
   category: z
     .string()
-    .min(3, "A categoria deve ter pelo menos 3 caracteres.")
     .max(50, "A categoria pode ter no máximo 50 caracteres."),
   endDate: z.date().refine((date) => {
     const today = new Date();
