@@ -18,27 +18,35 @@ function PublicConsultationPage() {
     React.useEffect(() => {
         (async () => {
 
-            const searchFromQuery = params.get('q');
+            const searchFromQuery = params.get('q') ?? '';
 
             let data = await request<PublicConsultation[]>({
-                endpoint: `?page=${currentPage}&size=3&q=${searchFromQuery ? searchFromQuery : search}`,
+                endpoint: `?page=${currentPage}&size=3&q=${searchFromQuery}`,
             });
             data ||= [];
 
             const hasData = (await request<PublicConsultation[]>({
-                endpoint: `?page=${currentPage + 1}&size=3&q=${searchFromQuery ? searchFromQuery : search}`,
+                endpoint: `?page=${currentPage + 1}&size=3&q=${searchFromQuery}`,
             }))?.length !== 0;
 
             setDisablePagination(!hasData);
             setData(data);
-            console.log(params.get('q'))
         })();
-    }, [currentPage, request, search, params]);
+    }, [currentPage, request, params]);
 
     if (loading) {
         return <div className="h-full flex items-center justify-center">
           <Atom color="#6746CB" size="medium" text="" textColor="" />
       </div>
+    }
+
+    const onSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const data = await request<PublicConsultation[]>({
+            endpoint: `?page=${currentPage}&size=3&q=${search}`,
+        });
+        if (!data) return;
+        setData(data);
     }
     
 
@@ -51,14 +59,15 @@ function PublicConsultationPage() {
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-                <div className="mb-4">
+                    <form className="mb-4" onSubmit={onSearch}>
                         <input
                         onChange={event => setSearch(event.target.value)}
+                        value={search}
                         type="search"
                         placeholder="Pesquisar consultas..."
                         className="w-full px-4 py-2 border border-brand-primary border-opacity-10 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-brand-primary"
                         />
-                    </div>
+                    </form>
                     <div className="space-y-4">
                         {
                             data.map(item => <PublicConsultationItem data={item} key={item.id} />)
