@@ -69,6 +69,7 @@ function DashboardChart() {
         endpoint: '/public-consultation/stats/by-month',
       });
 
+
       //{ date: "2024-04-01", desktop: 222, mobile: 150 },
       const mapToChartDataPublicConsultation = (({ year, month, day, totalCreated }: CreatedByMonth) => {
         return {
@@ -93,6 +94,7 @@ function DashboardChart() {
         ...set1,
         ...set2
       ];
+
 
       setChartData(chartData);
     };

@@ -103,7 +103,7 @@ function RegisterForm() {
                     <div className="mt-5">
                         <FormField name="confirmationPassword" label="Confirmar Senha" type="password" placeholder="Digite a senha novamente" className="p-6 text-lg bg-gray-50"/>
                     </div>
-                    <Button onClick={register} className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Cadastrar</Button>
+                    <Button onClick={register} className="w-full text-lg mt-8 p-6 bg-gradient-to-t from-[#6746CB] to-[#4D94FF] hover:bg-brand-primary hover:opacity-80 mb-5">Cadastrar</Button>
                     <p className="text-lg text-center">Já possui uma conta? <Link to="/auth" className="text-brand-primary">Faça Login</Link></p>
                 </form>
             </div>

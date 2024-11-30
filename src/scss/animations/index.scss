@@ -9,3 +9,35 @@
         transform: translateX(0); 
     }
 }
+
+@keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+.modal-enter {
+  animation: modalFadeIn 0.3s ease-out;
+}
+  
+
+/* Defining the animation */
+@keyframes infiniteRotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+  
+  /* Applying the animation to an element */
+.rotating-element {
+display: inline-block; /* It can be inline or block, depending on the element */
+animation: infiniteRotation 4s linear infinite;
+}

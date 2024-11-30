@@ -1,8 +1,13 @@
 import Footer from "@/core/components/Footer";
 import Header from "@/core/components/Header";
+import useAuth from "@/core/hooks/useAuth";
 import { Outlet } from "react-router-dom";
 
 function HomePage() {
+    const { payload } = useAuth();
+    if (!payload) {
+        return null;
+    }
     return (
         <div>
             <Header/>

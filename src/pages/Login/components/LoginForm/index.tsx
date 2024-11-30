@@ -89,7 +89,7 @@ function LoginForm() {
                    <div className="mt-5">
                         <FormField name="password" label="Senha" type="password" placeholder="Digite sua Senha" className='p-6 text-lg bg-gray-50'/>
                    </div>
-                    <Button onClick={signIn} className="w-full text-lg mt-8 p-6 bg-brand-primary hover:bg-brand-primary hover:opacity-80 mb-5">Login</Button>
+                    <Button onClick={signIn} className="w-full text-lg mt-8 p-6 bg-gradient-to-t from-[#6746CB] to-[#4D94FF] hover:bg-brand-primary hover:opacity-80 mb-5">Login</Button>
                     <p className="text-lg text-center">Não possui uma conta? <Link to="register" className="text-brand-primary">Cadastre-se</Link></p>
                 </form>
             </div>

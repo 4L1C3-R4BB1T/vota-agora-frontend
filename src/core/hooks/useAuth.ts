@@ -36,9 +36,9 @@ const useAuth = () => {
         }
     };
 
-    const getToken = () => {
-        return  window.localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
-    }
+    const getToken = React.useCallback(() => {
+        return window.localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
+    }, []);
 
     React.useEffect(() => {
         const token = window.localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);

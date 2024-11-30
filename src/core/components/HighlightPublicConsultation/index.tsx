@@ -75,7 +75,7 @@ function HighlightPublicConsultation() {
           <div className="flex flex-col items-center justify-center mb-10 py-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm">
             <i className="fas fa-folder-open text-brand-primary text-5xl mb-3"></i>
             <span className="text-brand-primary text-lg font-medium">
-              Não há nenhuma consulta cadastrada
+              Não há nenhuma consulta postada
             </span>
           </div>
         );
@@ -86,7 +86,6 @@ function HighlightPublicConsultation() {
             <Carousel>
                 <CarouselContent>
                     { data.map(publicConsultation => {
-
                         return (
                             <CarouselItem key={publicConsultation.id} className="basis-1/4">
                                 <HighlightPublicConsultationItem data={publicConsultation}/>

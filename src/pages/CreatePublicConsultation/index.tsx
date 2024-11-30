@@ -89,89 +89,118 @@ function CreatePublicConsultation() {
   }
 
     return (
-        <div className="container  mx-auto p-6">
-        <Card className="shadow-lg border border-brand-primary border-opacity-80 bg-white">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold text-white bg-brand-primary p-4 rounded-md flex items-center">
-              <i className="fas fa-plus-circle mr-2"></i> Criar Consulta Pública
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <form className="space-y-4" onChange={onFormChange} onSubmit={event => event.preventDefault()}>
-              {/* Campo para título */}
-              <div className="flex flex-col">
-                <label className="font-semibold text-brand-primary mb-2 text-lg" htmlFor="title">
-                  <i className="fas fa-comment-dots mr-2"></i> Título:
-                </label>
-                <Input
-                  type="text"
-                  name="title"
-                  id="title"
-                  placeholder="Digite o título da consulta"
-                  className="border-brand-primary focus:border-brand-primary p-6 text-base"
-                />
-              </div>
-  
-              {/* Campo para descrição */}
-              <div className="flex flex-col">
-                <label className="font-semibold text-brand-primary mb-2 text-lg" htmlFor="description">
-                  <i className="fas fa-align-left mr-2"></i> Descrição:
-                </label>
-                <Textarea
-                  name="description"
-                  id="description"
-                  placeholder="Descreva a consulta"
-                  className="border-brand-primary focus:border-brand-primary p-3 text-base"
-                  rows={4}
-                />
-              </div>
-
-                {/* Campo para URL da imagem */}
-                <div className="flex flex-col">
-                  <label className="font-semibold text-brand-primary mb-2 text-lg" htmlFor="imageUrl">
-                    <i className="fas fa-image mr-2"></i> URL da Imagem:
-                  </label>
-                  <Input
-                    type="text"
-                    name="imageUrl"
-                    id="imageUrl"
-                    placeholder="Insira a URL da imagem"
-                    className="border-brand-primary focus:border-brand-primary p-6 text-base"
-                  />
-              </div>
-  
-              {/* Campo para categoria */}
-              <div className="flex flex-col">
-                <label className="font-semibold text-brand-primary mb-2 text-lg" htmlFor="category">
-                  <i className="fas fa-tags mr-2"></i> Categoria:
-                </label>
-                
-                <PublicConsultationOptions/>
-              </div>
-  
-              {/* Campo para data de início */}
-              <div className="flex gap-5 mt-5">
-                <div className="flex flex-col">
-                  <label className="font-semibold text-brand-primary mb-2 relative top-0.5 text-lg" htmlFor="endDate">
-                    <i className="fas fa-calendar-times mr-2"></i> Data de Encerramento:
-                  </label>
-                  <DatePickerForm onSelectionDate={setDate} name="endDate"/>
-                </div>
-              </div>
-  
-              {/* Botão de criar consulta */}
-              <div className="flex gap-2 justify-center mt-6">
-                <Button type="button" onClick={() => navigate('/home/dashboard')} className="bg-brand-primary hover:opacity-80 py-5 text-lg mt-4 placeholder:text-lg text-white hover:bg-brand-primary/80 px-6 rounded-md shadow-lg transition duration-200">
-                  <i className="fa-solid fa-arrow-left"></i> Voltar
-                </Button>
-                <Button onClick={onSubmit} type="submit" className="bg-brand-primary hover:opacity-80 py-5 text-lg mt-4 placeholder:text-lg text-white hover:bg-brand-primary/80 px-6 rounded-md shadow-lg transition duration-200">
-                  Publicar
-                </Button>
-              </div>
-            </form>
-          </CardContent>
-        </Card>
-      </div>
+      <div className="container mx-auto p-6 max-w-5xl">
+      <Card className="shadow-lg border border-brand-primary border-opacity-80 bg-white rounded-lg overflow-hidden">
+        {/* Cabeçalho */}
+        <CardHeader className="bg-brand-primary text-white p-6 rounded-t-lg">
+          <CardTitle className="text-2xl font-bold flex items-center">
+            <i className="fas fa-plus-circle mr-3"></i>
+            Criar Consulta Pública
+          </CardTitle>
+        </CardHeader>
+    
+        {/* Conteúdo */}
+        <CardContent className="p-6">
+          <form
+            className="space-y-6"
+            onChange={onFormChange}
+            onSubmit={(event) => event.preventDefault()}
+          >
+            {/* Campo para título */}
+            <div className="flex flex-col">
+              <label
+                htmlFor="title"
+                className="text-lg font-semibold text-brand-primary mb-2 flex items-center"
+              >
+                <i className="fas fa-comment-dots mr-2"></i> Título:
+              </label>
+              <Input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Digite o título da consulta"
+                className="border border-gray-300 focus:border-brand-primary focus:ring-brand-primary rounded-lg p-3 text-base"
+              />
+            </div>
+    
+            {/* Campo para descrição */}
+            <div className="flex flex-col">
+              <label
+                htmlFor="description"
+                className="text-lg font-semibold text-brand-primary mb-2 flex items-center"
+              >
+                <i className="fas fa-align-left mr-2"></i> Descrição:
+              </label>
+              <Textarea
+                name="description"
+                id="description"
+                placeholder="Descreva a consulta"
+                className="border border-gray-300 focus:border-brand-primary focus:ring-brand-primary rounded-lg p-3 text-base"
+                rows={4}
+              />
+            </div>
+    
+            {/* Campo para URL da imagem */}
+            <div className="flex flex-col">
+              <label
+                htmlFor="imageUrl"
+                className="text-lg font-semibold text-brand-primary mb-2 flex items-center"
+              >
+                <i className="fas fa-image mr-2"></i> URL da Imagem:
+              </label>
+              <Input
+                type="text"
+                name="imageUrl"
+                id="imageUrl"
+                placeholder="Insira a URL da imagem"
+                className="border border-gray-300 focus:border-brand-primary focus:ring-brand-primary rounded-lg p-3 text-base"
+              />
+            </div>
+    
+            {/* Campo para categoria */}
+            <div className="flex flex-col">
+              <label
+                htmlFor="category"
+                className="text-lg font-semibold text-brand-primary mb-2 flex items-center"
+              >
+                <i className="fas fa-tags mr-2"></i> Categoria:
+              </label>
+              <PublicConsultationOptions />
+            </div>
+    
+            {/* Campo para data de encerramento */}
+            <div className="flex flex-col mt-5">
+              <label
+                htmlFor="endDate"
+                className="text-lg font-semibold text-brand-primary mb-2 flex items-center"
+              >
+                <i className="fas fa-calendar-times mr-2"></i> Data de Encerramento:
+              </label>
+              <DatePickerForm onSelectionDate={setDate} name="endDate" />
+            </div>
+    
+            {/* Botões */}
+            <div className="flex justify-between mt-6">
+              <Button
+                type="button"
+                onClick={() => navigate('/home/dashboard')}
+                className="bg-gray-200 text-brand-primary hover:bg-gray-300 px-6 py-3 rounded-lg shadow transition duration-200 flex items-center"
+              >
+                <i className="fa-solid fa-arrow-left mr-2"></i> Voltar
+              </Button>
+              <Button
+                onClick={onSubmit}
+                type="submit"
+                className="bg-brand-primary text-white hover:bg-brand-primary/90 px-6 py-3 rounded-lg shadow-lg transition duration-200 flex items-center"
+              >
+                <i className="fa-solid fa-paper-plane mr-2"></i> Publicar
+              </Button>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+    
       );
 }
 

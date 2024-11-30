@@ -63,15 +63,15 @@ function Footer() {
                   <p className="text-sm text-brand-primary mb-4">Entre em contato conosco para mais informações:</p>
                   <div className="flex items-center mb-2">
                     <i className="fas fa-envelope mr-2 text-brand-primary"></i>
-                    <a href="mailto:contato@suaempresa.com" className="text-brand-primary hover:text-gray-200">contato@suaempresa.com</a>
+                    <a href="mailto:contato@suaempresa.com" className="text-brand-primary hover:text-gray-200">gl.equipe@gmail.com</a>
                   </div>
                   <div className="flex items-center mb-2">
                     <i className="fas fa-phone mr-2 text-brand-primary"></i>
-                    <span className="text-brand-primary">Telefone: (11) 1234-5678</span>
+                    <span className="text-brand-primary">Telefone: (28) 99950-5410</span>
                   </div>
                   <div className="flex items-center">
                     <i className="fas fa-globe mr-2 text-brand-primary"></i>
-                    <span className="text-brand-primary">www.suaempresa.com</span>
+                    <span className="text-brand-primary">https://github.com/GNobroga</span>
                   </div>
                 </CardContent>
               </Card>
